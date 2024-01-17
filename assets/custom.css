@@ -1,0 +1,11 @@
+._calc {
+    position: absolute;
+    right: 0;
+}
+._calcSpan {
+    color: #7593bd;
+    font-weight: bold;
+}
+._calcSpan:hover {
+    color: #556b8a;
+}
