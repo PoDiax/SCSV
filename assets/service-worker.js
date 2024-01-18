@@ -49,17 +49,28 @@ async function handleCalculateItemsSizeManually(workshopItemIds) {
 
       const responseData = await response.json();
 
-      if (responseData.response && responseData.response.publishedfiledetails && responseData.response.publishedfiledetails.length > 0) {
-        const file_size_bytes = responseData.response.publishedfiledetails[0].file_size;
+      if (
+        responseData.response &&
+        responseData.response.publishedfiledetails &&
+        responseData.response.publishedfiledetails.length > 0
+      ) {
+        const file_size_bytes =
+          responseData.response.publishedfiledetails[0].file_size;
         const file_size_mb = file_size_bytes / 1024 / 1024;
 
-        console.log(`Item ${workshopItemId}: Size = ${file_size_mb.toFixed(2)} MB`);
-        totalSizeMb += file_size_mb;
+        if (!isNaN(file_size_mb) && isFinite(file_size_mb)) {
+          console.log(`Item ${workshopItemId}: Size = ${file_size_mb.toFixed(2)} MB`);
+          totalSizeMb += file_size_mb;
+        } else {
+          console.error(`Invalid size for item ${workshopItemId}`);
+        }
       } else {
         console.error(`Invalid response structure for item ${workshopItemId}`);
       }
     } catch (error) {
-      console.error(`Error processing API response for item ${workshopItemId}: ${error.message}`);
+      console.error(
+        `Error processing API response for item ${workshopItemId}: ${error.message}`
+      );
     }
   }));
 
