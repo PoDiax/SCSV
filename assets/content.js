@@ -1,8 +1,6 @@
 // content.js
 
-const isCollectionPage = document.getElementsByClassName("breadcrumbs")[0].textContent.trim().includes("Collections");
-
-if (!isCollectionPage) {
+if (!document.getElementsByClassName("collectionChildren").length > 0) {
     console.debug(":<");
 } else {
     buttonClicked = false;
@@ -33,7 +31,10 @@ if (!isCollectionPage) {
 
                 port.onMessage.addListener((message) => {
                     if (message.type === 'CALCULATE_WORKSHOP_SIZE_RESULT') {
-                        const { totalSizeMb, error } = message;
+                        const {
+                            totalSizeMb,
+                            error
+                        } = message;
 
                         if (error) {
                             console.error('Error calculating workshop item size:', error);
@@ -53,9 +54,9 @@ if (!isCollectionPage) {
         });
     }
 
-    const buttonLocation = Array.from(document.querySelectorAll('.workshopItemDescriptionTitle')).find(div => div.textContent.includes('Items'));
-
-
+    var workshopItemDesc = document.getElementsByClassName("workshopItemDescriptionTitle");
+    var buttonLocation = workshopItemDesc.length > 1 ? workshopItemDesc[workshopItemDesc.length - 1] : workshopItemDesc[0];
+    
     if (buttonLocation) {
         const calcButton = document.createElement("span");
         calcButton.className = "general_btn _calc";
