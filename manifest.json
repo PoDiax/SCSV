@@ -6,8 +6,8 @@
         "email": "podiaxcontact@gmail.com"
     },
     "description": "Allows you to see steam workshop collection size with just a click of a button.",
-    "version": "1.0",
-    "version_name": "1.0 beta",
+    "version": "1.0.1",
+    "version_name": "1.0.1 beta",
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
