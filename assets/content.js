@@ -55,7 +55,7 @@ if (!document.getElementsByClassName("collectionChildren").length > 0) {
     }
 
     var workshopItemDesc = document.getElementsByClassName("workshopItemDescriptionTitle");
-    var buttonLocation = workshopItemDesc.length > 1 ? workshopItemDesc[workshopItemDesc.length - 1] : workshopItemDesc[0];
+    var buttonLocation = workshopItemDesc.length > 2 ? workshopItemDesc[workshopItemDesc.length - 2] : workshopItemDesc[workshopItemDesc.length - 1];
     
     if (buttonLocation) {
         const calcButton = document.createElement("span");
