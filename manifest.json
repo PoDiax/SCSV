@@ -6,8 +6,8 @@
         "email": "podiaxcontact@gmail.com"
     },
     "description": "Allows you to see steam workshop collection size with just a click of a button.",
-    "version": "1.0.3",
-    "version_name": "1.0.3 beta",
+    "version": "1.0.4",
+    "version_name": "1.0.4 beta",
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
@@ -17,7 +17,7 @@
         "default_icon": "icon.png",
         "default_popup": "/assets/popup.html"
     },
-    "permissions": ["activeTab"],
+    "permissions": ["activeTab", "storage"],
     "host_permissions": [
         "https://steamcommunity.com/sharedfiles/filedetails/*",
         "https://api.steampowered.com/*"
@@ -25,8 +25,11 @@
     "background": {
         "service_worker": "/assets/service-worker.js"
     },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
     "content_scripts": [{
-        "js": ["/assets/content.js"],
+        "js": ["/assets/content.js", "/assets/popup.js"],
         "css": ["/assets/custom.css"],
         "matches": ["https://steamcommunity.com/sharedfiles/filedetails/*"]
     }]
