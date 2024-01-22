@@ -3,14 +3,27 @@
 if (!document.getElementsByClassName("collectionChildren").length > 0) {
     console.debug(":<");
 } else {
-    buttonClicked = false;
 
-    const getAllItems = () => {
-        const itemsContainer = document.getElementsByClassName("collectionChildren")[0];
+    async function getLinkedCollections() {
+        return new Promise(function(resolve) {
+            chrome.storage.sync.get({
+                linkedCollections: false
+            }, function (items) {
+                resolve(items.linkedCollections || false);
+            });
+        });
+    }
+
+    const linkedCollections = await getLinkedCollections();
+
+    console.log(`Linked collections: ${linkedCollections}`);
+    
+    const getAllItems = () => { //TODO Get all Linked Collections and check them as well
+        const itemsContainer = document.getElementsByClassName("collectionChildren");
         const items = [];
 
-        if (itemsContainer) {
-            const collectionItems = itemsContainer.querySelectorAll('div.collectionItem');
+        if (itemsContainer[0]) {
+            const collectionItems = itemsContainer[0].querySelectorAll('div.collectionItem');
 
             for (const item of collectionItems) {
                 if (item.id && item.id.startsWith('sharedfile_')) {
@@ -54,8 +67,8 @@ if (!document.getElementsByClassName("collectionChildren").length > 0) {
         });
     }
 
-    var workshopItemDesc = document.getElementsByClassName("workshopItemDescriptionTitle");
-    var buttonLocation = workshopItemDesc.length > 2 ? workshopItemDesc[workshopItemDesc.length - 2] : workshopItemDesc[workshopItemDesc.length - 1];
+    const workshopItemDesc = document.getElementsByClassName("workshopItemDescriptionTitle");
+    const buttonLocation = workshopItemDesc.length > 2 ? workshopItemDesc[workshopItemDesc.length - 2] : workshopItemDesc[workshopItemDesc.length - 1];
     
     if (buttonLocation) {
         const calcButton = document.createElement("span");
@@ -74,7 +87,7 @@ if (!document.getElementsByClassName("collectionChildren").length > 0) {
                     buttonClicked = true;
                 } catch (error) {
                     buttonClicked = false;
-                    console.error('Error calculating workshop item size:', error);
+                    console.error('Error calculating workshop items size:', error);
                 }
             } else {
                 console.debug('No workshop items found.');
