@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Steam Collection Size Viewer",
+    "short_name": "SCSV",
+    "author": "podiax@pdx.ovh",
+    "description": "Allows you to see Steam workshop collection size with just a click of a button.",
+    "version": "1.0.2",
+    "icons": {
+      "16": "icon_16.png",
+      "48": "icon_48.png",
+      "128": "icon.png"
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://steamcommunity.com/sharedfiles/filedetails/*"],
+        "js": ["/assets/content.js"],
+        "css": ["/assets/custom.css"]
+      }
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "podiax@pdx.ovh",
+        "strict_min_version": "91.0"
+      }
+    }
+  }
+  

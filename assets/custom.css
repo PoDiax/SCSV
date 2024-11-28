@@ -2,10 +2,10 @@
     position: absolute;
     right: 0;
 }
-._calcSpan {
+span._calcSpan {
     color: #7593bd;
     font-weight: bold;
 }
-._calcSpan:hover {
+span._calcSpan:hover {
     color: #556b8a;
 }
