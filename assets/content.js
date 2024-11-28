@@ -1,30 +1,70 @@
-// content.js
+if (typeof browser === "undefined" && typeof chrome !== "undefined") {
+    var browser = chrome;
+}
 
-if (!document.getElementsByClassName("collectionChildren").length > 0) {
+let allowed = [ "Collections", "Warsztat", "Workshop", "Oficina", "ワークショップ"] 
+
+const isCollectionPage = document.getElementsByClassName("breadcrumbs")[0].textContent.trim();
+
+
+if (isCollectionPage in allowed) {
     console.debug(":<");
 } else {
+    let buttonClicked = false;
 
-    async function getLinkedCollections() {
-        return new Promise(function(resolve) {
-            chrome.storage.sync.get({
-                linkedCollections: false
-            }, function (items) {
-                resolve(items.linkedCollections || false);
-            });
-        });
-    }
-
-    const linkedCollections = await getLinkedCollections();
-
-    console.log(`Linked collections: ${linkedCollections}`);
+    const getAllItems = async () => {
+        try {
+            const url = window.location.href;
+            const currentUrl = new URL(url);
+            const id = currentUrl.searchParams.get('id');
     
-    const getAllItems = () => { //TODO Get all Linked Collections and check them as well
-        const itemsContainer = document.getElementsByClassName("collectionChildren");
+            if (!id) {
+                console.error("ID parameter not found in URL");
+                return [];
+            }
+    
+            const response = await fetch(
+                'https://api.steampowered.com/ISteamRemoteStorage/GetCollectionDetails/v1/',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        collectioncount: 1,
+                        ['publishedfileids[0]']: id,
+                    }),
+                }
+            );
+    
+            if (!response.ok) {
+                throw new Error("Failed to fetch collection details");
+            }
+    
+            const data = await response.json();
+    
+            const collectionDetails = data.response.collectiondetails;
+            
+            if (!collectionDetails || collectionDetails.length === 0) {
+                throw new Error("No collectiondetails found in the response");
+            }
+    
+            const items = collectionDetails[0].children.map(item => item.publishedfileid) || [];
+            return items;
+    
+        } catch (error) {
+            console.warn("Error occurred with new method:", error);
+            console.debug("Falling back to old method...");
+            return fallbackGetAllItems();
+        }
+    };
+    
+    const fallbackGetAllItems = () => {
+        const itemsContainer = document.getElementsByClassName("collectionChildren")[0];
         const items = [];
-
-        if (itemsContainer[0]) {
-            const collectionItems = itemsContainer[0].querySelectorAll('div.collectionItem');
-
+    
+        if (itemsContainer) {
+            const collectionItems = itemsContainer.querySelectorAll('div.collectionItem');
             for (const item of collectionItems) {
                 if (item.id && item.id.startsWith('sharedfile_')) {
                     const fileId = item.id.replace('sharedfile_', '');
@@ -36,65 +76,98 @@ if (!document.getElementsByClassName("collectionChildren").length > 0) {
     };
 
     async function calculateWorkshopItemsSize(workshopItemIds) {
-        return new Promise((resolve, reject) => {
-            if ('serviceWorker' in navigator) {
-                const port = chrome.runtime.connect({
-                    name: 'content-script'
-                });
+        let totalSizeMb = 0;
 
-                port.onMessage.addListener((message) => {
-                    if (message.type === 'CALCULATE_WORKSHOP_SIZE_RESULT') {
-                        const {
-                            totalSizeMb,
-                            error
-                        } = message;
+        console.info('Calculating workshop item sizes...');
 
-                        if (error) {
-                            console.error('Error calculating workshop item size:', error);
-                        } else {
-                            document.getElementsByClassName("_calcSpan")[0].textContent = `${totalSizeMb} MB`;
+        await Promise.all(
+            workshopItemIds.map(async (workshopItemId) => {
+                try {
+                    // console.log(`Fetching details for item ${workshopItemId}...`);
+
+                    const response = await fetch(
+                        'https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: new URLSearchParams({
+                                itemcount: 1,
+                                ['publishedfileids[0]']: workshopItemId,
+                            }),
                         }
-                    }
-                });
+                    );
 
-                port.postMessage({
-                    type: 'CALCULATE_WORKSHOP_SIZE',
-                    workshopItemIds: workshopItemIds
-                });
-            } else {
-                reject('Service workers are not supported in this browser.');
-            }
-        });
+                    const responseData = await response.json();
+
+                    if (
+                        responseData.response &&
+                        responseData.response.publishedfiledetails &&
+                        responseData.response.publishedfiledetails.length > 0
+                    ) {
+                        const file_size_bytes =
+                            responseData.response.publishedfiledetails[0].file_size;
+                        const file_size_mb = file_size_bytes / 1024 / 1024;
+
+                        if (!isNaN(file_size_mb) && isFinite(file_size_mb)) {
+                            // console.log(
+                            //     `Item ${workshopItemId}: Size = ${file_size_mb.toFixed(2)} MB`
+                            // );
+                            totalSizeMb += file_size_mb;
+                        } else {
+                            console.warn(`Invalid size for item ${workshopItemId}`);
+                        }
+                    } else {
+                        console.error(`Invalid response structure for item ${workshopItemId}`);
+                    }
+                } catch (error) {
+                    console.error(
+                        `Error processing API response for item ${workshopItemId}: ${error.message}`
+                    );
+                }
+            })
+        );
+
+        // console.log(`Total size: ${totalSizeMb.toFixed(2)} MB`);
+        return totalSizeMb.toFixed(2);
     }
 
-    const workshopItemDesc = document.getElementsByClassName("workshopItemDescriptionTitle");
-    const buttonLocation = workshopItemDesc.length > 2 ? workshopItemDesc[workshopItemDesc.length - 2] : workshopItemDesc[workshopItemDesc.length - 1];
-    
+    const buttonLocations = Array.from(document.querySelectorAll('.workshopItemDescriptionTitle'));
+
+    let buttonLocation = buttonLocations.find(div => div.textContent.includes('Items'));
+
+    if (!buttonLocation) {
+        buttonLocation = buttonLocations[1] || buttonLocations[0];
+    }
+
     if (buttonLocation) {
         const calcButton = document.createElement("span");
-        calcButton.className = "general_btn _calc";
-        calcButton.innerHTML = `
-          <span class="_calcSpan">Calculate Size</span>
-        `;
+        calcButton.className = "general_btn _calc _calcSpan";
+        calcButton.textContent = "Calculate Size";
 
-        const allItems = getAllItems();
-
-        calcButton.onclick = async function () {
-            if (allItems.length > 0) {
-                if (buttonClicked) return;
-                try {
-                    await calculateWorkshopItemsSize(allItems);
-                    buttonClicked = true;
-                } catch (error) {
-                    buttonClicked = false;
-                    console.error('Error calculating workshop items size:', error);
+        getAllItems().then(allItems => {
+            calcButton.onclick = async function () {
+                if (allItems.length > 0) {
+                    if (buttonClicked) return;
+                    calcButton.textContent = "Loading...";
+                    try {
+                        const totalSizeMb = await calculateWorkshopItemsSize(allItems);
+                        calcButton.textContent = `${totalSizeMb} MB`;
+                        buttonClicked = true;
+                    } catch (error) {
+                        buttonClicked = false;
+                        console.error('Error calculating workshop item size:', error);
+                    }
+                } else {
+                    console.debug('No workshop items found.');
                 }
-            } else {
-                console.debug('No workshop items found.');
-            }
-        };
+            };
 
-        buttonLocation.appendChild(calcButton);
+            buttonLocation.appendChild(calcButton);
+        }).catch((error) => {
+            console.error("Error fetching collection items:", error);
+        });
     } else {
         console.debug("Button container not found.");
     }
