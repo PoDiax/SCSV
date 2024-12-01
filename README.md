@@ -28,8 +28,7 @@ Alternatively, you can install SCSV directly from the [Chrome Web Store](https:/
 
 ### Firefox:
 
-<!-- #### You can install SCSV directly from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/steam-collection-size-viewer/) page. -->
-### For now it's not verified!
+#### You can install SCSV directly from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/steam-collection-size-viewer/) page.
 
 ## Usage
 
