@@ -1,24 +1,91 @@
-<!-- popup.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{
+        body {
             color: #7ea64b;
             background-color: #171d25;
+            width: 150px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            text-align: center;
         }
-        a{
+        a {
             color: #b8f26d;
             text-decoration: none;
+        }
+        .logo {
+            width: 50px; 
+            height: 50px;
+            margin-bottom: 20px
+        }
+        .toggle-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .toggle-label::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        input[type="checkbox"]:checked + .toggle-label {
+            background-color: #7ea64b;
+        }
+
+        input[type="checkbox"]:checked + .toggle-label::before {
+            transform: translateX(30px);
+        }
+
+        .toggle-label span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #171d25;
         }
     </style>
 </head>
 <body>
-    <h2>Nothing to see here</h2>
+    <img src="../icon.png" alt="Logo" class="logo">
     <h2><a href="https://steamcommunity.com/workshop/" target="_blank">Workshop</a></h2>
+
+    <div class="toggle-container">
+        <input type="checkbox" id="unit-toggle">
+        <label for="unit-toggle" class="toggle-label">
+            <span id="label-text">Show in GB</span>
+        </label>
+    </div>
+
+    <script src="popup.js"></script>
 </body>
 </html>
-    
