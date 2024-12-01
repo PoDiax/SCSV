@@ -1,30 +1,46 @@
 {
-  "manifest_version": 2,
-  "name": "Steam Collection Size Viewer",
-  "short_name": "SCSV",
-  "author": "podiax@pdx.ovh",
-  "description": "Allows you to see Steam workshop collection size with just a click of a button.",
-  "version": "1.0.3",
-  "icons": {
-      "16": "icon_16.png",
-      "48": "icon_48.png",
-      "128": "icon.png"
-  },
-  "permissions": [
-      "activeTab",
-      "https://api.steampowered.com/*"
-  ],
-  "content_scripts": [
-      {
-      "matches": ["https://steamcommunity.com/sharedfiles/filedetails/*"],
-      "js": ["/assets/content.js"],
-      "css": ["/assets/custom.css"]
-      }
-  ],
-  "browser_specific_settings": {
-      "gecko": {
-      "id": "podiax@pdx.ovh",
-      "strict_min_version": "91.0"
-      }
-  }
-  }
+    "manifest_version":2,
+    "name":"Steam Collection Size Viewer",
+    "short_name":"SCSV",
+    "author":"podiax@pdx.ovh",
+    "description":"Allows you to see Steam workshop collection size with just a click of a button.",
+    "version":"1.0.4",
+    "icons":{
+       "16":"icon_16.png",
+       "48":"icon_48.png",
+       "128":"icon.png"
+    },
+    "permissions":[
+       "activeTab",
+       "https://api.steampowered.com/*",
+       "storage"
+    ],
+    "content_scripts":[
+       {
+          "matches":[
+             "https://steamcommunity.com/sharedfiles/filedetails/*"
+          ],
+          "js":[
+             "/assets/content.js"
+          ],
+          "css":[
+             "/assets/custom.css"
+          ]
+       }
+    ],
+    "browser_action":{
+       "default_popup":"assets/popup.html",
+       "default_icon":{
+          "16":"icon_16.png",
+          "48":"icon_48.png",
+          "128":"icon.png"
+       },
+       "default_title":"Steam Collection Size Viewer"
+    },
+    "browser_specific_settings":{
+       "gecko":{
+          "id":"podiax@pdx.ovh",
+          "strict_min_version":"91.0"
+       }
+    }
+ }
