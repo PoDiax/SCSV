@@ -20,6 +20,7 @@
     "permissions": ["storage"],
     "host_permissions": [
         "https://steamcommunity.com/sharedfiles/filedetails/*",
+        "https://steamcommunity.com/workshop/filedetails/*",
         "https://api.steampowered.com/*"
     ],
     "content_security_policy": {
