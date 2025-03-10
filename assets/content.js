@@ -1,16 +1,14 @@
 // content.js
 if (typeof browser === "undefined" && typeof chrome !== "undefined") {
-    console.log("Using Chrome browser API");
+    // console.log("Using Chrome browser API");
     var browser = chrome;
 }
-console.log("Content script loaded!");
 
 let allowed = ["Collections", "Warsztat", "Workshop", "Oficina", "ワークショップ"];
 
 let useGB = false;
 
 async function loadSettings() {
-    console.log("Loading Settings!")
     try {
         const result = await browser.storage.local.get('useGB');
         useGB = result.useGB !== undefined ? result.useGB : false;
