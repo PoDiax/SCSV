@@ -29,6 +29,9 @@
     "content_scripts": [{
         "js": ["/assets/content.js", "/assets/popup.js"],
         "css": ["/assets/custom.css"],
-        "matches": ["https://steamcommunity.com/sharedfiles/filedetails/*"]
+        "matches": [
+            "https://steamcommunity.com/sharedfiles/filedetails/*",
+            "https://steamcommunity.com/workshop/filedetails/*"
+        ]
     }]
 }
