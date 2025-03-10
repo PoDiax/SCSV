@@ -1,34 +1,37 @@
 {
-   "manifest_version": 3,
-   "name": "Steam Collection Size Viewer",
-   "short_name": "SCSV",
-   "author": {
-       "email": "podiax@pdx.ovh"
-   },
-   "description": "Allows you to see steam workshop collection size with just a click of a button.",
-   "version": "1.0.5",
-   "version_name": "1.0.5",
-   "icons": {
-       "16": "icon_16.png",
-       "48": "icon_48.png",
-       "128": "icon.png"
-   },
-   "action": {
-       "default_icon": "icon.png",
-       "default_popup": "/assets/popup.html"
-   },
-   "permissions": ["storage"],
-   "host_permissions": [
-       "https://steamcommunity.com/sharedfiles/filedetails/*",
-       "https://steamcommunity.com/workshop/filedetails/*",
-       "https://api.steampowered.com/*"
-   ],
-   "content_security_policy": {
-       "extension_pages": "script-src 'self'; object-src 'self'"
-   },
-   "content_scripts": [{
-       "js": ["/assets/content.js", "/assets/popup.js"],
-       "css": ["/assets/custom.css"],
-       "matches": ["https://steamcommunity.com/sharedfiles/filedetails/*"]
-   }]
+    "manifest_version": 3,
+    "name": "Steam Collection Size Viewer",
+    "short_name": "SCSV",
+    "author": {
+        "email": "podiax@pdx.ovh"
+    },
+    "description": "Allows you to see steam workshop collection size with just a click of a button.",
+    "version": "1.0.7",
+    "version_name": "1.0.7",
+    "icons": {
+        "16": "icon_16.png",
+        "48": "icon_48.png",
+        "128": "icon.png"
+    },
+    "action": {
+        "default_icon": "icon.png",
+        "default_popup": "/assets/popup.html"
+    },
+    "permissions": ["storage"],
+    "host_permissions": [
+        "https://steamcommunity.com/sharedfiles/filedetails/*",
+        "https://steamcommunity.com/workshop/filedetails/*",
+        "https://api.steampowered.com/*"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "content_scripts": [{
+        "js": ["/assets/content.js", "/assets/popup.js"],
+        "css": ["/assets/custom.css"],
+        "matches": [
+            "https://steamcommunity.com/sharedfiles/filedetails/*",
+            "https://steamcommunity.com/workshop/filedetails/*"
+        ]
+    }]
 }
