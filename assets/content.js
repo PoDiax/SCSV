@@ -4,8 +4,6 @@ if (typeof browser === "undefined" && typeof chrome !== "undefined") {
     var browser = chrome;
 }
 
-let allowed = ["Collections", "Warsztat", "Workshop", "Oficina", "ワークショップ"];
-
 let useGB = false;
 
 async function loadSettings() {
@@ -22,6 +20,11 @@ async function checkIfPageIsCollection() {
     const url = window.location.href;
     const currentUrl = new URL(url);
     const id = currentUrl.searchParams.get('id');
+
+    if (!id) {
+        console.info("ID parameter not found in URL");
+        return false;
+    }
 
     const response = await fetch(
         'https://api.steampowered.com/ISteamRemoteStorage/GetCollectionDetails/v1/',
@@ -65,16 +68,17 @@ function getSessionId() {
 }
 
 loadSettings().then(async () => {
-    const breadcrumbs = document.querySelectorAll(".breadcrumbs a");
-    const breadcrumbTexts = Array.from(breadcrumbs).map(el => el.textContent.trim());
+    // const breadcrumbs = document.querySelectorAll(".breadcrumbs a");
+    // const breadcrumbTexts = Array.from(breadcrumbs).map(el => el.textContent.trim());
 
-    if (!breadcrumbTexts.some(text => allowed.includes(text))) {
-        console.debug(":<");
-        return;
-    }
+    // if (!breadcrumbTexts.some(text => allowed.includes(text))) {
+    //     console.debug(":<");
+    //     return;
+    // }
 
     const isCollectionPage = await checkIfPageIsCollection();
     if (!isCollectionPage) {
+        console.debug(":<");
         return;
     }
     let buttonClicked = false;

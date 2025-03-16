@@ -4,7 +4,7 @@
    "short_name": "SCSV",
    "author": "podiax@pdx.ovh",
    "description": "Allows you to see Steam workshop collection size with just a click of a button.",
-   "version": "1.0.6",
+   "version": "1.0.9",
    "icons": {
       "16": "icon_16.png",
       "48": "icon_48.png",
