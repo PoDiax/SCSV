@@ -38,7 +38,7 @@ Alternatively, you can install SCSV directly from the [Chrome Web Store](https:/
 
 ## Screenshots
 
-![SCSV in Action](https://lh3.googleusercontent.com/wnBJhU7_xj_LUai2RYhtGM9ftgC9NM-ysNstQ89X5Y1vwL-uh4CI0yRz2pqREQCoWFw9M3DtrhNUkiBmbDdxq9-FZw=s1280-w1280-h800)
+![SCSV in Action](https://lh3.googleusercontent.com/AX5WOtPFYaTJix-_9jWjS1w-NJeV7p6QAwGCURf3q11h56M-CDJquntEaRSQUaa9FffQHbECOVvYBDq6tkcWtD9Z=s1280-w1280-h800)
 
 ## Contributing
 
