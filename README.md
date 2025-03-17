@@ -7,9 +7,9 @@ Steam Collection Size Viewer is a browser extension that enhances your Steam Wor
 ## Features
 
 * **Instant Collection Size**: Quickly check the total size of any Steam Workshop collection.
+* **Like All**: Quickly like all items in the collection with the click of a button.
 * **User-Friendly Interface**: Streamlined design for a seamless user experience.
 * **Cross-Browser Support**: Now works on both Chrome and Firefox browsers.
-
 ## Manual Installation
 
 ### Chrome:
