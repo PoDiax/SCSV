@@ -1,4 +1,9 @@
 // content.js
+
+const currentUrl = new URL(window.location.href);
+const id = currentUrl.searchParams.get('id');
+
+
 if (typeof browser === "undefined" && typeof chrome !== "undefined") {
     // console.log("Using Chrome browser API");
     var browser = chrome;
@@ -16,11 +21,8 @@ async function loadSettings() {
     }
 }
 
-async function checkIfPageIsCollection() {
-    const url = window.location.href;
-    const currentUrl = new URL(url);
-    const id = currentUrl.searchParams.get('id');
 
+async function checkIfPageIsCollection() {
     if (!id) {
         console.info("ID parameter not found in URL");
         return false;
@@ -85,10 +87,6 @@ loadSettings().then(async () => {
 
     const getAllItems = async () => {
         try {
-            const url = window.location.href;
-            const currentUrl = new URL(url);
-            const id = currentUrl.searchParams.get('id');
-
             if (!id) {
                 console.error("ID parameter not found in URL");
                 return [];
@@ -211,10 +209,18 @@ loadSettings().then(async () => {
             return;
         }
     
+        const storageKey = `likedItems_${id}`;
+        let likedItems = (await browser.storage.local.get(storageKey))[storageKey] || [];
+    
         let successCount = 0;
         let failureCount = 0;
     
         for (const itemId of workshopItemIds) {
+            if (likedItems.includes(itemId)) {
+                // console.log(`Skipping already liked item: ${itemId}`);
+                continue;
+            }
+    
             try {
                 const response = await fetch(
                     'https://steamcommunity.com/sharedfiles/voteup',
@@ -229,28 +235,37 @@ loadSettings().then(async () => {
                         }),
                     }
                 );
-    
+            
                 if (!response.ok) {
-                    console.warn(`Failed to like item ${itemId}`);
                     failureCount++;
-                } else {
-                    // console.log(`Successfully liked item ${itemId}`);
-                    successCount++;
+                    console.warn(`Failed to like item: ${itemId}`);
+                    return;
                 }
+            
+                const data = await response.json();
+                
+                if (data.success === 15 || Object.values(data.results || {}).includes(15)) {
+                    alert(`You need to own the game to like the items in the collection.`);
+                    break;
+                } else if (data.success === 1) {
+                    successCount++;
+                    likedItems.push(itemId);
+                    await browser.storage.local.set({ [storageKey]: likedItems });
+                    // console.log(`Liked item: ${itemId}`);
+                } else{
+                    failureCount++;
+                    console.error('Unknown error. Report it at https://github.com/PoDiax/SCSV/issues/');
+                } 
+            
             } catch (error) {
-                console.error(`Error liking item ${itemId}:`, error);
-                failureCount++;
+                console.error(`Error liking item ${itemId}: ${error.message}`);
             }
+            
         }
     
-        if (failureCount === 0) {
-            alert("All items liked successfully!");
-        } else if (successCount > 0) {
-            alert(`Partly liked! Successfully liked ${successCount} items, but some failed.`);
-        } else {
-            alert("Failed to like any items.");
-        }
+        console.info(`Liked ${successCount} items, failed ${failureCount} times.`);
     }
+    
 
     const buttonLocations = Array.from(document.querySelectorAll('.workshopItemDescriptionTitle'));
 
@@ -269,7 +284,7 @@ loadSettings().then(async () => {
         likeAllButton.className = "general_btn _likeAll";
         likeAllButton.textContent = "Like All";
 
-        getAllItems().then(allItems => {
+        getAllItems().then(async allItems => {
             calcButton.onclick = async function () {
                 if (calcButton.disabled) return;
             
@@ -302,6 +317,16 @@ loadSettings().then(async () => {
                     console.debug('No workshop items found.');
                 }
             };
+
+            const storageKey = `likedItems_${id}`;
+            let likedItems = (await browser.storage.local.get(storageKey))[storageKey] || [];
+        
+            const allLiked = allItems.every(item => likedItems.includes(item));
+            
+            if (allLiked) {
+                likeAllButton.disabled = true;
+                likeAllButton.textContent = "All Liked";
+            }
 
             buttonLocation.appendChild(calcButton);
             buttonLocation.appendChild(likeAllButton);

@@ -8,7 +8,7 @@
             color: #7ea64b;
             background-color: #171d25;
             width: 150px;
-            height: 200px;
+            height: 215px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,7 +23,7 @@
         .logo {
             width: 50px; 
             height: 50px;
-            margin-bottom: 20px
+            margin-bottom: 20px;
         }
         .toggle-container {
             margin-top: 20px;
@@ -73,6 +73,17 @@
             font-size: 12px;
             color: #171d25;
         }
+
+        .clear-btn {
+            margin-top: 5px;
+            padding: 4px;
+            background-color: #b8f26d;
+            border: none;
+            color: #171d25;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -85,7 +96,9 @@
             <span id="label-text">Show in GB</span>
         </label>
     </div>
-
+    
+    <button id="clear-liked-addons" class="clear-btn">Clear Liked Addons</button>
+    
     <script src="popup.js"></script>
 </body>
 </html>
