@@ -211,9 +211,10 @@ loadSettings().then(async () => {
     
         const storageKey = `likedItems_${id}`;
         let likedItems = new Set((await browser.storage.local.get(storageKey))[storageKey] || []);
-        
+
         let successCount = 0;
         let failureCount = 0;
+        let status15Timestamps = [];
     
         for (const itemId of workshopItemIds) {
             if (likedItems.has(itemId)) {
@@ -237,31 +238,33 @@ loadSettings().then(async () => {
                 const data = await response.json();
     
                 if (data.success === 15 || Object.values(data.results ?? {}).includes(15)) {
-                    alert("You need to own the game to like the items in the collection.");
-                    return; 
-                }
+                    failureCount++;
+                    console.warn(`Status 15 error for item: ${itemId}`);
+                    const now = Date.now();
+                    status15Timestamps.push(now);
     
-
-                // if (data.success === 1) {
-                //     successCount++;
-                //     likedItems.add(itemId);
-                //     await browser.storage.local.set({ [storageKey]: [...likedItems] });
-                //     // console.log(`Liked item: ${itemId}`);
-                //     continue;
-                // }
-
-                // Bypassing for now, as it seems to be a false positive
-                if (data.success) {
-                    successCount++;
-                    likedItems.add(itemId);
-                    await browser.storage.local.set({ [storageKey]: [...likedItems] });
-                    // console.log(`Liked item: ${itemId}`);
+                    status15Timestamps = status15Timestamps.filter(ts => now - ts <= 5000);
+                    
+                    // likedItems.add(itemId);
+                    // await browser.storage.local.set({ [storageKey]: [...likedItems] });
+                    // console.info("Count of status 15 errors in the last 5 seconds: " + status15Timestamps.length);
+                    if (status15Timestamps.length >= 5) {
+                        // console.warn("Detected multiple status 15 errors in a short time. Stopping execution.");
+                        alert("A lot of items is private/hidden or you do not own the game!");
+                        return;
+                    }
                     continue;
                 }
     
-                // failureCount++;
-                // console.error("Unknown error. Report it at https://github.com/PoDiax/SCSV/issues/");
+                if (data.success === 1) {
+                    successCount++;
+                    likedItems.add(itemId);
+                    await browser.storage.local.set({ [storageKey]: [...likedItems] });
+                    continue;
+                }
     
+                failureCount++;
+                console.error("Unknown error. Report it at https://github.com/PoDiax/SCSV/issues/");
             } catch (error) {
                 console.error(`Error liking item ${itemId}: ${error.message}`);
                 failureCount++;
@@ -270,6 +273,7 @@ loadSettings().then(async () => {
         console.info(`Liked ${successCount} items, failed ${failureCount} times.`);
         return successCount;
     }
+    
     
     
 
