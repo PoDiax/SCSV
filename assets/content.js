@@ -210,61 +210,57 @@ loadSettings().then(async () => {
         }
     
         const storageKey = `likedItems_${id}`;
-        let likedItems = (await browser.storage.local.get(storageKey))[storageKey] || [];
-    
+        let likedItems = new Set((await browser.storage.local.get(storageKey))[storageKey] || []);
+        
         let successCount = 0;
         let failureCount = 0;
     
         for (const itemId of workshopItemIds) {
-            if (likedItems.includes(itemId)) {
+            if (likedItems.has(itemId)) {
                 // console.log(`Skipping already liked item: ${itemId}`);
                 continue;
             }
     
             try {
-                const response = await fetch(
-                    'https://steamcommunity.com/sharedfiles/voteup',
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams({
-                            sessionid: sessionId,
-                            id: itemId,
-                        }),
-                    }
-                );
-            
+                const response = await fetch('https://steamcommunity.com/sharedfiles/voteup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ sessionid: sessionId, id: itemId }),
+                });
+    
                 if (!response.ok) {
                     failureCount++;
                     console.warn(`Failed to like item: ${itemId}`);
-                    return;
+                    continue;
                 }
-            
+    
                 const data = await response.json();
-                
-                if (data.success === 15 || Object.values(data.results || {}).includes(15)) {
-                    alert(`You need to own the game to like the items in the collection.`);
-                    break;
-                } else if (data.success === 1) {
+    
+                if (data.success === 15 || Object.values(data.results ?? {}).includes(15)) {
+                    alert("You need to own the game to like the items in the collection.");
+                    return; 
+                }
+    
+                if (data.success === 1) {
                     successCount++;
-                    likedItems.push(itemId);
-                    await browser.storage.local.set({ [storageKey]: likedItems });
+                    likedItems.add(itemId);
+                    await browser.storage.local.set({ [storageKey]: [...likedItems] });
                     // console.log(`Liked item: ${itemId}`);
-                } else{
-                    failureCount++;
-                    console.error('Unknown error. Report it at https://github.com/PoDiax/SCSV/issues/');
-                } 
-            
+                    continue;
+                }
+    
+                failureCount++;
+                console.error("Unknown error. Report it at https://github.com/PoDiax/SCSV/issues/");
+    
             } catch (error) {
                 console.error(`Error liking item ${itemId}: ${error.message}`);
+                failureCount++;
             }
-            
         }
-    
         console.info(`Liked ${successCount} items, failed ${failureCount} times.`);
+        return successCount;
     }
+    
     
 
     const buttonLocations = Array.from(document.querySelectorAll('.workshopItemDescriptionTitle'));
@@ -311,8 +307,12 @@ loadSettings().then(async () => {
                 if (allItems.length > 0) {
                     likeAllButton.disabled = true;
                     likeAllButton.textContent = "Liking...";
-                    await likeAllItems(allItems);
-                    likeAllButton.textContent = "Liked All";
+                    const liked = await likeAllItems(allItems);
+                    if (liked > 0) {
+                        likeAllButton.textContent = "Liked All";
+                    } else {
+                        likeAllButton.textContent = "Like All";
+                    }
                 } else {
                     console.debug('No workshop items found.');
                 }
