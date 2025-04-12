@@ -145,9 +145,10 @@ loadSettings().then(async () => {
 
     async function calculateWorkshopItemsSize(workshopItemIds) {
         let totalSizeMb = 0;
-
+        const itemSizes = {};
+    
         console.info('Calculating workshop item sizes...');
-
+    
         await Promise.all(
             workshopItemIds.map(async (workshopItemId) => {
                 try {
@@ -164,35 +165,80 @@ loadSettings().then(async () => {
                             }),
                         }
                     );
-
+    
                     const responseData = await response.json();
-
+    
                     if (
                         responseData.response &&
                         responseData.response.publishedfiledetails &&
                         responseData.response.publishedfiledetails.length > 0
                     ) {
-                        const file_size_bytes =
-                            responseData.response.publishedfiledetails[0].file_size;
+                        const fileDetails = responseData.response.publishedfiledetails[0];
+                        const file_size_bytes = fileDetails.file_size;
                         const file_size_mb = file_size_bytes / 1024 / 1024;
-
+    
                         if (!isNaN(file_size_mb) && isFinite(file_size_mb)) {
                             totalSizeMb += file_size_mb;
+                            itemSizes[workshopItemId] = file_size_bytes;
                         } else {
                             console.warn(`Invalid size for item ${workshopItemId}`);
+                            itemSizes[workshopItemId] = 'N/A';
                         }
                     } else {
                         console.error(`Invalid response structure for item ${workshopItemId}`);
+                        itemSizes[workshopItemId] = 'N/A';
                     }
                 } catch (error) {
                     console.error(
                         `Error processing API response for item ${workshopItemId}: ${error.message}`
                     );
+                    itemSizes[workshopItemId] = 'N/A';
                 }
             })
         );
-
+    
+        displayItemSizes(itemSizes);
+    
         return totalSizeMb.toFixed(2);
+    }
+    
+    function displayItemSizes(itemSizes) {
+        const addons = document.getElementsByClassName("collectionItem");
+        
+        for (let i = 0; i < addons.length; i++) { 
+            let addon = addons[i];
+            let addon_id = addon.id.replace("sharedfile_", "");
+            
+            const titleElement = addon.querySelector(".workshopItemTitle");
+            
+            if (titleElement && itemSizes[addon_id] && itemSizes[addon_id] !== 'N/A') {
+                if (!titleElement.querySelector(".item-size")) {
+                    const sizeSpan = document.createElement("span");
+                    sizeSpan.className = "item-size";
+                    sizeSpan.style.marginLeft = "8px";
+                    sizeSpan.style.color = "#8ba6b6";
+
+                    const sizeBytes = itemSizes[addon_id];
+                    let displaySize;
+                    
+                    if (sizeBytes < 1024) {
+                        displaySize = `${sizeBytes} B`;
+                    } else if (sizeBytes < 1024 * 1024) {
+                        size_in_kb = sizeBytes / 1024;
+                        displaySize = `${size_in_kb.toFixed(2)} KB`;
+                    } else if (sizeBytes < 1024 * 1024 * 1024) {
+                        size_in_mb = sizeBytes / 1024 / 1024;
+                        displaySize = `${size_in_mb.toFixed(2)} MB`;
+                    } else {
+                        size_in_gb = sizeBytes / 1024 / 1024 / 1024;
+                        displaySize = `${size_in_gb.toFixed(2)} GB`;
+                    }
+                    
+                    sizeSpan.textContent = `(${displaySize})`;
+                    titleElement.appendChild(sizeSpan);
+                }
+            }
+        }
     }
 
     async function likeAllItems(workshopItemIds) {
