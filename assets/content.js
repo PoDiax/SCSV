@@ -351,6 +351,7 @@ loadSettings().then(async () => {
                         const totalSizeMb = await calculateWorkshopItemsSize(allItems);
                         let totalSize = useGB ? (totalSizeMb / 1024).toFixed(2) + ' GB' : totalSizeMb + ' MB';
                         calcButton.textContent = `${totalSize}`;
+                        navigator.clipboard.writeText(calcButton.textContent);
                     } catch (error) {
                         console.error('Error calculating workshop item size:', error);
                         calcButton.textContent = "Error";
