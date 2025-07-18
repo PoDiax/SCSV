@@ -1,0 +1,127 @@
+/* Steam Collection Size Viewer content script styles */
+
+._calc {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+}
+
+span._calcSpan {
+  color: #7593bd;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+span._calcSpan:hover {
+  color: #556b8a;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(126, 166, 75, 0.3);
+}
+
+._likeAll {
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+._likeAll:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(126, 166, 75, 0.3);
+}
+
+.item-size {
+  margin-left: 8px;
+  color: #8ba6b6;
+  font-size: 0.9em;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.item-size:hover {
+  opacity: 1;
+}
+
+/* Loading animation for buttons */
+.scsv-loading {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.scsv-loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid #7ea64b;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: scsv-spin 1s linear infinite;
+  z-index: 1;
+}
+
+/* Semi-transparent overlay to dim the text */
+.scsv-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(23, 29, 37, 0.7);
+  z-index: 0;
+}
+
+@keyframes scsv-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success state animations */
+.scsv-success {
+  background: linear-gradient(45deg, #7ea64b, #b8f26d) !important;
+  animation: scsv-pulse 0.6s ease-in-out;
+  animation-fill-mode: forwards;
+  transition: background 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  box-shadow: 0 0 8px rgba(126, 166, 75, 0.6);
+}
+
+/* Pulse animation */
+@keyframes scsv-pulse {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.08);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Error state */
+.scsv-error {
+  background: linear-gradient(45deg, #d32f2f, #f44336) !important;
+  color: white !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  ._calc, ._likeAll {
+    position: relative;
+    display: block;
+    margin: 5px 0;
+    right: auto;
+  }
+  
+  .item-size {
+    display: block;
+    margin: 2px 0;
+  }
+}
