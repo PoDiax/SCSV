@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for Steam theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171d25;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7ea64b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8f26d;
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    #7ea64b 0%,
+    #b8f26d 50%,
+    #7ea64b 100%
+  );
+  background-size: 200px 100%;
+}
+
+/* Steam button animations */
+.steam-button {
+  @apply transition-all duration-300 ease-in-out;
+  @apply hover:scale-105 active:scale-95;
+  @apply hover:shadow-lg;
+}
+
+.steam-button:hover {
+  box-shadow: 0 0 20px rgba(126, 166, 75, 0.4);
+}
+
+.steam-toggle {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.steam-toggle:checked {
+  @apply bg-steam-green;
+}
+
+/* Loading animation */
+.loading-spinner {
+  @apply animate-spin rounded-full border-4 border-steam-green border-t-transparent;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .popup-container {
+    @apply min-w-full;
+  }
+}
