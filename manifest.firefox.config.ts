@@ -40,7 +40,7 @@ export default {
   },
   browser_specific_settings: {
     gecko: {
-      id: "podiax@pdx.ovh",
+      id: "pd@pdx.ovh",
       strict_min_version: "109.0",
     },
   },
