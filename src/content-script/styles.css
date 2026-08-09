@@ -1,50 +1,81 @@
 /* Steam Collection Size Viewer content script styles */
 
 ._calc {
-  position: absolute;
+  position: absolute !important;
   right: 0;
   z-index: 1000;
 }
 
-span._calcSpan {
-  color: #7593bd;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-span._calcSpan:hover {
-  color: #556b8a;
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(126, 166, 75, 0.3);
-}
-
 ._likeAll {
+  margin-left: 15px;
   margin-right: 10px;
-  transition: all 0.3s ease;
+  position: relative;
 }
 
-._likeAll:hover {
+.scsv-design {
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(23, 29, 37, 0.8) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #7593bd !important;
+  font-weight: bold !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-shadow: none !important;
+}
+
+
+.scsv-design:hover {
+  background: rgba(42, 71, 94, 0.8) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
   transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(126, 166, 75, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(126, 166, 75, 0.3);
+}
+
+
+.scsv-design::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.scsv-design:hover::before {
+  left: 150%;
 }
 
 .item-size {
   margin-left: 8px;
   color: #8ba6b6;
   font-size: 0.9em;
+  font-weight: 600;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
 .item-size:hover {
   opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Loading animation for buttons */
 .scsv-loading {
-  position: absolute;
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.8;
+  color: transparent !important;
 }
 
 .scsv-loading::before {
@@ -52,74 +83,560 @@ span._calcSpan:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 16px;
-  height: 16px;
-  margin: -8px 0 0 -8px;
-  border: 2px solid #7ea64b;
-  border-top: 2px solid transparent;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #67c1f5;
   border-radius: 50%;
-  animation: scsv-spin 1s linear infinite;
-  z-index: 1;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNjUgNjUiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI0IiIHg9Ii41IiB5PSIuNSIvPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iQSIgeDI9IjUwJSIgeDE9IjUwJSIgeTI9IjEwMCUiIHkxPSIwJSI+PHN0b3Agc3RvcC1jb2xvcj0iIzExMWQyZSIgb2Zmc2V0PSIwJSIvPjxzdG9wIHN0b3AtY29sb3I9IiMwNTE4MzkiIG9mZnNldD0iMjEuMiUiLz48c3RvcCBzdG9wLWNvbG9yPSIjMGExYjQ4IiBvZmZzZXQ9IjQwLjclIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzEzMmU2MiIgb2Zmc2V0PSI1OC4xJSIvPjxzdG9wIHN0b3AtY29sb3I9IiMxNDRiN2UiIG9mZnNldD0iNzMuOCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjMTM2NDk3IiBvZmZzZXQ9Ijg3LjMlIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzEzODdiOCIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHN5bWJvbCBpZD0iQiI+PGc+PHBhdGggZD0iTTEuMzA1IDQxLjIwMkM1LjI1OSA1NC4zODYgMTcuNDg4IDY0IDMxLjk1OSA2NGMxNy42NzMgMCAzMi0xNC4zMjcgMzItMzJzLTE0LjMyNy0zMi0zMi0zMkMxNS4wMDEgMCAxLjEyNCAxMy4xOTMuMDI4IDI5Ljg3NGMyLjA3NCAzLjQ3NyAyLjg3OSA1LjYyOCAxLjI3NSAxMS4zMjh6IiBmaWxsPSJ1cmwoI0EpIi8+PHBhdGggZD0iTTMwLjMxIDIzLjk4NWwuMDAzLjE1OC03LjgzIDExLjM3NWMtMS4yNjgtLjA1OC0yLjU0LjE2NS0zLjc0OC42NjJhOC4xNCA4LjE0IDAgMCAwLTEuNDk4LjhMLjA0MiAyOS44OTNzLS4zOTggNi41NDYgMS4yNiAxMS40MjRsMTIuMTU2IDUuMDE2Yy42IDIuNzI4IDIuNDggNS4xMiA1LjI0MiA2LjI3YTguODggOC44OCAwIDAgMCAxMS42MDMtNC43ODIgOC44OSA4Ljg5IDAgMCAwIC42ODQtMy42NTZMNDIuMTggMzYuMTZsLjI3NS4wMDVjNi43MDUgMCAxMi4xNTUtNS40NjYgMTIuMTU1LTEyLjE4cy01LjQ0LTEyLjE2LTEyLjE1NS0xMi4xNzRjLTYuNzAyIDAtMTIuMTU1IDUuNDYtMTIuMTU1IDEyLjE3NHptLTEuODggMjMuMDVjLTEuNDU0IDMuNS01LjQ2NiA1LjE0Ny04Ljk1MyAzLjY5NGE2Ljg0IDYuODQgMCAwIDEtMy41MjQtMy4zNjJsMy45NTcgMS42NGE1LjA0IDUuMDQgMCAwIDAgNi41OTEtMi43MTkgNS4wNSA1LjA1IDAgMCAwLTIuNzE1LTYuNjAxbC00LjEtMS42OTVjMS41NzgtLjYgMy4zNzItLjYyIDUuMDUuMDc3IDEuNy43MDMgMyAyLjAyNyAzLjY5NiAzLjcycy42OTIgMy41Ni0uMDEgNS4yNDZNNDIuNDY2IDMyLjFhOC4xMiA4LjEyIDAgMCAxLTguMDk4LTguMTEzIDguMTIgOC4xMiAwIDAgMSA4LjA5OC04LjExMSA4LjEyIDguMTIgMCAwIDEgOC4xIDguMTExIDguMTIgOC4xMiAwIDAgMS04LjEgOC4xMTNtLTYuMDY4LTguMTI2YTYuMDkgNi4wOSAwIDAgMSA2LjA4LTYuMDk1YzMuMzU1IDAgNi4wODQgMi43MyA2LjA4NCA2LjA5NWE2LjA5IDYuMDkgMCAwIDEtNi4wODQgNi4wOTMgNi4wOSA2LjA5IDAgMCAxLTYuMDgxLTYuMDkzeiIvPjwvZz48L3N5bWJvbD48L3N2Zz4=');
+  background-size: 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: scsv-spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 2;
+  transform-origin: center;
 }
 
-/* Semi-transparent overlay to dim the text */
 .scsv-loading::after {
-  content: '';
+  content: attr(data-progress);
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(23, 29, 37, 0.7);
-  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #67c1f5;
+  font-size: 11px;
+  font-weight: bold;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes scsv-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* Success state animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 
+ * ----------------------------------------------------
+ * SteamItemManager Modal UI
+ * ----------------------------------------------------
+ */
+
+.scsv-custom-add-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.scsv-custom-add-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.scsv-custom-add-btn:hover::before {
+  left: 200%;
+}
+
+.scsv-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.scsv-modal {
+  background: rgba(22, 32, 45, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(102, 192, 244, 0.2);
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.3s ease;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+}
+
+.scsv-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.scsv-modal-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(139, 197, 63, 0.15) 0%, transparent 70%);
+  animation: pulseGlow 4s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.5) translate(20px, 10px);
+    opacity: 1;
+  }
+}
+
+.scsv-header-title-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
+}
+
+.scsv-header-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(102, 192, 244, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.scsv-modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scsv-modal-close {
+  background: transparent;
+  border: none;
+  color: #66c0f4;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.scsv-modal-close:hover {
+  opacity: 1;
+}
+
+.scsv-modal-content {
+  padding: 12px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(102, 192, 244, 0.3);
+  border-radius: 10px;
+}
+
+.scsv-loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #66c0f4;
+  gap: 12px;
+}
+
+.scsv-loading-spinner svg {
+  width: 24px;
+  height: 24px;
+}
+
+.scsv-empty,
+.scsv-error {
+  padding: 40px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scsv-error {
+  color: #ff5b5b;
+}
+
+.scsv-collection-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.scsv-nested-backdrop {
+  z-index: 2147483647 !important;
+}
+
+.scsv-nested-modal {
+  background: rgba(18, 25, 35, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  width: 320px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scsv-nested-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px 12px 0 0;
+}
+
+.scsv-nested-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.scsv-nested-close {
+  background: transparent;
+  border: none;
+  color: #8c9297;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.scsv-nested-close:hover {
+  color: #fff;
+}
+
+.scsv-nested-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.scsv-nested-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.scsv-nested-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scsv-req-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #8bc53f;
+  cursor: pointer;
+}
+
+.scsv-req-name {
+  color: #e5e4dc;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scsv-nested-actions {
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 12px 12px;
+}
+
+.scsv-btn-skip,
+.scsv-btn-add {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.scsv-btn-skip {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+
+.scsv-btn-skip:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
 .scsv-success {
-  background: linear-gradient(45deg, #7ea64b, #b8f26d) !important;
-  animation: scsv-pulse 0.6s ease-in-out;
-  animation-fill-mode: forwards;
-  transition: background 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-  box-shadow: 0 0 8px rgba(126, 166, 75, 0.6);
+  animation: successPulse 2s;
 }
 
-/* Pulse animation */
-@keyframes scsv-pulse {
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 197, 63, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 197, 63, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 197, 63, 0);
+  }
+}
+
+/* Workshop Highlighter Styles */
+.scsv-highlighted {
+  overflow: visible !important;
+}
+
+.scsv-collection-badge {
+  font-size: 12px;
+  color: #a0a0a0;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 6px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  border-left: 3px solid #8bc53f;
+  line-height: 1.4;
+}
+
+.scsv-collection-link {
+  color: #66c0f4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.scsv-collection-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(102, 192, 244, 0.6);
+  text-decoration: underline;
+}
+
+.scsv-quick-add-btn {
+  background: rgba(102, 192, 244, 0.15);
+  color: #66c0f4;
+  border: 1px solid #66c0f4;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.scsv-quick-add-btn:hover {
+  background: #66c0f4;
+  color: #ffffff;
+}
+
+.scsv-btn-add {
+  background: rgba(139, 197, 63, 0.15);
+  color: #8bc53f;
+  border: 1px solid rgba(139, 197, 63, 0.3);
+}
+
+.scsv-btn-add:hover {
+  background: rgba(139, 197, 63, 0.25);
+  border-color: rgba(139, 197, 63, 0.5);
+}
+
+.scsv-btn-loading {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.scsv-collection-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.scsv-collection-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scsv-collection-title {
+  color: #e5e4dc;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.scsv-collection-title:hover {
+  color: #66c0f4;
+  text-decoration: underline;
+}
+
+.scsv-collection-count {
+  color: #66c0f4;
+  font-size: 12px;
+}
+
+.scsv-toggle-btn {
+  background: rgba(102, 192, 244, 0.1);
+  border: 1px solid rgba(102, 192, 244, 0.3);
+  color: #66c0f4;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 70px;
+}
+
+.scsv-toggle-btn:hover:not(:disabled) {
+  background: rgba(102, 192, 244, 0.2);
+}
+
+.scsv-toggle-btn.scsv-active {
+  background: rgba(139, 197, 63, 0.1);
+  border-color: rgba(139, 197, 63, 0.3);
+  color: #8bc53f;
+}
+
+.scsv-toggle-btn.scsv-active:hover:not(:disabled) {
+  background: rgba(139, 197, 63, 0.2);
+}
+
+
+.scsv-success {
+  background: rgba(126, 166, 75, 0.2) !important;
+  color: #b8f26d !important;
+  border-color: rgba(126, 166, 75, 0.5) !important;
+  animation: scsv-pulse-success 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(126, 166, 75, 0.2);
+}
+
+@keyframes scsv-pulse-success {
   0% {
     transform: scale(1);
   }
-  30% {
-    transform: scale(1.08);
+
+  50% {
+    transform: scale(1.05);
   }
-  60% {
-    transform: scale(0.98);
-  }
+
   100% {
     transform: scale(1);
   }
 }
 
-
-/* Error state */
 .scsv-error {
-  background: linear-gradient(45deg, #d32f2f, #f44336) !important;
-  color: white !important;
+  background: rgba(211, 47, 47, 0.2) !important;
+  color: #ff5252 !important;
+  border-color: rgba(211, 47, 47, 0.5) !important;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-  ._calc, ._likeAll {
+
+  ._calc,
+  ._likeAll {
     position: relative;
     display: block;
     margin: 5px 0;
     right: auto;
   }
-  
+
   .item-size {
     display: block;
     margin: 2px 0;

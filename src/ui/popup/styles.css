@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar for Steam theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -20,11 +19,11 @@
   background: #b8f26d;
 }
 
-/* Custom animations */
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
   }
+
   100% {
     background-position: calc(200px + 100%) 0;
   }
@@ -32,16 +31,13 @@
 
 .shimmer {
   animation: shimmer 2s infinite;
-  background: linear-gradient(
-    90deg,
-    #7ea64b 0%,
-    #b8f26d 50%,
-    #7ea64b 100%
-  );
+  background: linear-gradient(90deg,
+      #7ea64b 0%,
+      #b8f26d 50%,
+      #7ea64b 100%);
   background-size: 200px 100%;
 }
 
-/* Steam button animations */
 .steam-button {
   @apply transition-all duration-300 ease-in-out;
   @apply hover:scale-105 active:scale-95;
@@ -60,12 +56,10 @@
   @apply bg-steam-green;
 }
 
-/* Loading animation */
 .loading-spinner {
   @apply animate-spin rounded-full border-4 border-steam-green border-t-transparent;
 }
 
-/* Responsive design */
 @media (max-width: 480px) {
   .popup-container {
     @apply min-w-full;

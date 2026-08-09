@@ -1,21 +1,9 @@
 import browser from 'webextension-polyfill'
 
+import { SteamAPI, SteamAPIResponse } from '../shared/SteamAPI'
+
 interface ItemSize {
   [key: string]: number | string
-}
-
-interface SteamAPIResponse {
-  response: {
-    collectiondetails: Array<{
-      children: Array<{
-        publishedfileid: string
-      }>
-    }>
-    publishedfiledetails: Array<{
-      file_size: number
-      result: number
-    }>
-  }
 }
 
 export class SteamCollectionAnalyzer {
@@ -52,6 +40,10 @@ export class SteamCollectionAnalyzer {
 
   private async checkIfPageIsCollection(): Promise<boolean> {
     if (!this.id) return false
+
+    if (document.querySelector('.collectionChildren')) {
+      return true
+    }
 
     try {
       const response = await fetch(
@@ -115,26 +107,31 @@ export class SteamCollectionAnalyzer {
 
   private createButton(text: string, className: string): HTMLSpanElement {
     const button = document.createElement('span')
-    button.className = `general_btn ${className}`
+    button.className = `general_btn scsv-design ${className}`
     button.textContent = text
     return button
   }
 
   private setupCalculateButton(button: HTMLSpanElement, allItems: string[]) {
     button.onclick = async () => {
-      if (button.classList.contains('scsv-loading')) return
+      if (button.classList.contains('scsv-loading') || button.dataset.calculated) return
 
       if (allItems.length > 0) {
         button.classList.add('scsv-loading')
         try {
-          const totalSizeMb = await this.calculateWorkshopItemsSize(allItems)
+          const { totalSizeMb, itemSizes } = await SteamAPI.calculateWorkshopItemsSize(allItems)
+          
+          this.displayItemSizes(itemSizes)
+
           const totalSize = this.useGB 
             ? `${(totalSizeMb / 1024).toFixed(2)} GB` 
-            : `${totalSizeMb} MB`
+            : `${totalSizeMb.toFixed(2)} MB`
 
           button.textContent = totalSize
           button.classList.remove('scsv-loading')
           button.classList.add('scsv-success')
+          button.dataset.calculated = 'true'
+          button.style.cursor = 'default'
           
           // Copy to clipboard
           try {
@@ -170,12 +167,15 @@ export class SteamCollectionAnalyzer {
       if (allItems.length > 0) {
         button.classList.add('scsv-loading')
         try {
-          const liked = await this.likeAllItems(allItems)
+          const liked = await this.likeAllItems(allItems, (current, total) => {
+            button.setAttribute('data-progress', `${current}/${total}`)
+          })
           
           button.classList.remove('scsv-loading')
+          button.removeAttribute('data-progress')
           
           if (liked > 0) {
-            button.textContent = `Liked ${liked} items`
+            button.textContent = `Liked ${liked}`
             button.classList.add('scsv-success')
           } else {
             button.textContent = 'Like All'
@@ -247,7 +247,12 @@ export class SteamCollectionAnalyzer {
         throw new Error('No collection details found')
       }
 
-      return collectionDetails[0].children?.map(item => item.publishedfileid) || []
+      const children = collectionDetails[0].children
+      if (!children || children.length === 0) {
+        throw new Error('Collection appears empty via API (might be private)')
+      }
+
+      return children.map(item => item.publishedfileid)
     } catch (error) {
       console.warn('Error with new method, falling back to old method:', error)
       return this.fallbackGetAllItems()
@@ -271,57 +276,7 @@ export class SteamCollectionAnalyzer {
     return items
   }
 
-  private async calculateWorkshopItemsSize(workshopItemIds: string[]): Promise<number> {
-    let totalSizeMb = 0
-    const itemSizes: ItemSize = {}
 
-    console.info('Calculating workshop item sizes...')
-
-    await Promise.all(
-      workshopItemIds.map(async (workshopItemId) => {
-        try {
-          const response = await fetch(
-            'https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/',
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({
-                itemcount: '1',
-                'publishedfileids[0]': workshopItemId,
-              }),
-            }
-          )
-
-          const responseData: SteamAPIResponse = await response.json()
-
-          if (responseData.response?.publishedfiledetails?.[0]) {
-            const fileDetails = responseData.response.publishedfiledetails[0]
-            const fileSizeBytes = fileDetails.file_size
-            const fileSizeMb = fileSizeBytes / (1024 * 1024)
-
-            if (!isNaN(fileSizeMb) && isFinite(fileSizeMb)) {
-              totalSizeMb += fileSizeMb
-              itemSizes[workshopItemId] = fileSizeBytes
-            } else {
-              console.warn(`Invalid size for item ${workshopItemId}`)
-              itemSizes[workshopItemId] = 'N/A'
-            }
-          } else {
-            console.error(`Invalid response for item ${workshopItemId}`)
-            itemSizes[workshopItemId] = 'N/A'
-          }
-        } catch (error) {
-          console.error(`Error processing item ${workshopItemId}:`, error)
-          itemSizes[workshopItemId] = 'N/A'
-        }
-      })
-    )
-
-    this.displayItemSizes(itemSizes)
-    return parseFloat(totalSizeMb.toFixed(2))
-  }
 
   private displayItemSizes(itemSizes: ItemSize) {
     const addons = document.querySelectorAll('.collectionItem')
@@ -359,7 +314,7 @@ export class SteamCollectionAnalyzer {
     })
   }
 
-  private async likeAllItems(workshopItemIds: string[]): Promise<number> {
+  private async likeAllItems(workshopItemIds: string[], onProgress?: (current: number, total: number) => void): Promise<number> {
     if (!this.checkUserLoggedIn()) {
       alert('You need to be logged in to like items.')
       return 0
@@ -378,9 +333,13 @@ export class SteamCollectionAnalyzer {
     let successCount = 0
     let failureCount = 0
     let status15Timestamps: number[] = []
+    let processedCount = 0
 
     for (const itemId of workshopItemIds) {
+      if (onProgress) onProgress(processedCount, workshopItemIds.length)
+      
       if (likedItems.has(itemId)) {
+        processedCount++
         continue
       }
 
@@ -422,7 +381,10 @@ export class SteamCollectionAnalyzer {
         console.error(`Error liking item ${itemId}:`, error)
         failureCount++
       }
+      processedCount++
     }
+
+    if (onProgress) onProgress(processedCount, workshopItemIds.length)
 
     console.info(`Liked ${successCount} items, failed ${failureCount} times`)
     return successCount

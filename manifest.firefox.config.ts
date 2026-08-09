@@ -1,4 +1,4 @@
-import packageJson from "./package.json"
+import packageJson from "./package.json" with { type: 'json' }
 
 const { version, name, description } = packageJson
 
@@ -14,7 +14,11 @@ export default {
     48: "icon_48.png",
     128: "icon.png",
   },
-  permissions: ["activeTab", "storage"],
+  background: {
+    scripts: ["src/background/background.ts"],
+    type: "module",
+  },
+  permissions: ["storage", "alarms"],
   host_permissions: [
     "https://steamcommunity.com/sharedfiles/filedetails/*",
     "https://steamcommunity.com/workshop/filedetails/*",
@@ -27,6 +31,15 @@ export default {
         "https://steamcommunity.com/workshop/filedetails/*",
       ],
       js: ["src/content-script/index.ts"],
+    },
+    {
+      js: ["src/content-script/WorkshopHighlighter.ts"],
+      matches: [
+        "https://steamcommunity.com/workshop/browse/*",
+        "https://steamcommunity.com/app/*/workshop/*",
+        "https://steamcommunity.com/id/*/myworkshopfiles/*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles/*"
+      ],
     },
   ],
   action: {

@@ -1,9 +1,9 @@
 import { crx } from "@crxjs/vite-plugin"
 import { defineConfig, mergeConfig, UserConfig, PluginOption } from "vite"
 import zipPack from "vite-plugin-zip-pack"
-import manifest from "./manifest.firefox.config"
-import packageJson from "./package.json"
-import baseConfig from "./vite.config"
+import manifest from "./manifest.firefox.config.ts"
+import packageJson from "./package.json" with { type: 'json' }
+import baseConfig from "./vite.config.ts"
 import chalk from "chalk"
 
 const IS_DEV = process.env.NODE_ENV === "development"

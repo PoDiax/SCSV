@@ -1,5 +1,5 @@
 import type { ManifestV3Export } from "@crxjs/vite-plugin"
-import packageJson from "./package.json"
+import packageJson from "./package.json" with { type: 'json' }
 
 const { version, name, description } = packageJson
 
@@ -19,7 +19,11 @@ export default {
     default_icon: "icon.png",
     default_popup: "src/ui/popup/index.html",
   },
-  permissions: ["storage"],
+  background: {
+    service_worker: "src/background/background.ts",
+    type: "module",
+  },
+  permissions: ["storage", "alarms"],
   host_permissions: [
     "https://steamcommunity.com/sharedfiles/filedetails/*",
     "https://steamcommunity.com/workshop/filedetails/*",
@@ -36,5 +40,14 @@ export default {
         "https://steamcommunity.com/workshop/filedetails/*",
       ],
     },
+    {
+      js: ["src/content-script/WorkshopHighlighter.ts"],
+      matches: [
+        "https://steamcommunity.com/workshop/browse/*",
+        "https://steamcommunity.com/app/*/workshop/*",
+        "https://steamcommunity.com/id/*/myworkshopfiles/*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles/*"
+      ],
+    }
   ],
 } as ManifestV3Export

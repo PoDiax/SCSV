@@ -8,8 +8,8 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
-      "~": resolve(__dirname, "."),
+      "@": resolve(import.meta.dirname, "src"),
+      "~": import.meta.dirname,
     },
   },
   build: {
@@ -17,7 +17,7 @@ export default defineConfig({
     sourcemap: IS_DEV ? "inline" : false,
     rollupOptions: {
       input: {
-        popup: resolve(__dirname, "src/ui/popup/index.html"),
+        popup: resolve(import.meta.dirname, "src/ui/popup/index.html"),
       },
     },
   },

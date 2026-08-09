@@ -9,6 +9,10 @@ Steam Collection Size Viewer is a browser extension that enhances your Steam Wor
 * **Instant Collection Size**: Quickly check the total size of any Steam Workshop collection.
 * **Like All**: Quickly like all items in the collection with the click of a button.
 * **Unit Toggle**: Switch between MB and GB for size display.
+* **Advanced Collection Manager**: A custom, intuitive UI injected directly into Steam for adding items to your collections.
+* **Collection Highlighting**: Items you already have in a collection are highlighted in green while browsing the workshop, with a badge showing exactly which collections they belong to.
+* **Quick Add**: A convenient "+ Add" button is injected onto every workshop item card while browsing, allowing you to instantly pop open the collection manager without leaving the page.
+* **Background Syncing**: Automatically caches your collections in the background so SCSV is always up to date.
 * **Clear Liked Items**: Reset your liked addons cache.
 * **User-Friendly Interface**: Streamlined design with a Steam-inspired theme.
 * **Cross-Browser Support**: Works on both Chrome and Firefox browsers.
