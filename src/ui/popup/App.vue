@@ -10,9 +10,9 @@
         >
         <div class="text-center">
           <h1 class="text-lg font-bold text-steam-light-green">
-            Steam Collection
+            {{ t('popup_title') }}
           </h1>
-          <p class="text-sm text-steam-blue">Size Viewer</p>
+          <p class="text-sm text-steam-blue">{{ t('popup_subtitle') }}</p>
         </div>
       </div>
 
@@ -23,7 +23,7 @@
           target="_blank"
           class="text-steam-light-green hover:text-steam-green transition-colors duration-300 text-lg font-semibold hover:underline"
         >
-          Workshop
+          {{ t('popup_workshop_link') }}
         </a>
       </div>
 
@@ -56,9 +56,9 @@
         >
           <span v-if="isSyncing" class="flex items-center justify-center space-x-2">
             <div class="loading-spinner w-4 h-4"></div>
-            <span>Syncing...</span>
+            <span>{{ t('popup_syncing') }}</span>
           </span>
-          <span v-else>Sync Collections Cache</span>
+          <span v-else>{{ t('popup_sync_btn') }}</span>
         </button>
         
         <!-- Progress Bar -->
@@ -66,17 +66,17 @@
           <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1 overflow-hidden">
             <div class="bg-steam-light-green h-2.5 rounded-full transition-all duration-300" :style="{ width: `${syncProgress}%` }"></div>
           </div>
-          <p class="text-xs text-steam-light-green mt-1">Please keep open. {{ syncCurrent }} / {{ syncTotal }} Collections</p>
+          <p class="text-xs text-steam-light-green mt-1">{{ t('popup_sync_progress') }} {{ syncCurrent }} / {{ syncTotal }} {{ t('popup_collections_text') }}</p>
         </div>
 
         <!-- Cache Stats -->
         <div v-if="cacheItemCount > 0 && !isSyncing" class="mt-2 text-center animate-fade-in flex flex-col items-center">
-          <p class="text-xs text-steam-blue">Cached Items: <span class="text-steam-light-green font-semibold">{{ cacheItemCount }}</span> ({{ cacheSizeKB }} KB)</p>
+          <p class="text-xs text-steam-blue">{{ t('popup_cache_items') }} <span class="text-steam-light-green font-semibold">{{ cacheItemCount }}</span> ({{ cacheSizeKB }} KB)</p>
           <button 
             @click="showDebug = !showDebug" 
             class="mt-1 text-[10px] text-steam-blue hover:text-steam-light-green underline"
           >
-            {{ showDebug ? 'Hide' : 'View' }} Cache Data
+            {{ showDebug ? t('popup_hide_cache') : t('popup_view_cache') }}
           </button>
         </div>
         
@@ -97,9 +97,9 @@
       >
         <span v-if="isClearing" class="flex items-center justify-center space-x-2">
           <div class="loading-spinner w-4 h-4"></div>
-          <span>Clearing...</span>
+          <span>{{ t('popup_clearing') }}</span>
         </span>
-        <span v-else>Clear Liked Addons</span>
+        <span v-else>{{ t('popup_clear_btn') }}</span>
       </button>
 
       <div v-if="statusMessage" class="animate-fade-in text-center">
@@ -108,8 +108,15 @@
         </p>
       </div>
 
-      <div class="text-xs text-steam-light-blue text-center opacity-70">
-        v{{ version }}
+      <div class="text-xs text-center opacity-70">
+        <a 
+          href="https://github.com/PoDiax/SCSV" 
+          target="_blank" 
+          class="text-steam-light-blue hover:text-steam-light-green transition-colors hover:underline"
+          title="View Source on GitHub / Report Issues"
+        >
+          v{{ version }}
+        </a>
       </div>
     </div>
   </div>
@@ -120,6 +127,10 @@ import { ref, onMounted, computed } from 'vue'
 import browser from 'webextension-polyfill'
 import { version } from '~/package.json'
 import { CollectionService } from '~/src/shared/CollectionService'
+
+const t = (key: string, substitutions?: string | string[]) => {
+  return browser.i18n.getMessage(key, substitutions) || key
+}
 
 const useGB = ref(false)
 const isClearing = ref(false)
@@ -145,6 +156,8 @@ const statusMessageClass = computed(() => {
   }
 })
 
+const currentSteamId = ref<string | null>(null)
+
 const showMessage = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
   statusMessage.value = message
   statusType.value = type
@@ -159,14 +172,23 @@ const loadSettings = async () => {
     useGB.value = typeof result.useGB === 'boolean' ? result.useGB : false
   } catch (error) {
     console.error('Error loading settings:', error)
-    showMessage('Error loading settings', 'error')
+    showMessage(t('msg_error_saving'), 'error')
   }
 }
 
 const loadCacheStats = async () => {
   try {
-    const storage = await browser.storage.local.get('scsv_collection_cache')
-    const cache = storage.scsv_collection_cache || {}
+    const user = await CollectionService.getCurrentUser()
+    if (!user) {
+      cacheItemCount.value = 0
+      debugCacheContent.value = t('msg_not_logged_in')
+      return
+    }
+    
+    currentSteamId.value = user.steamId
+    const cacheKey = `scsv_collection_cache_${user.steamId}`
+    const storage = await browser.storage.local.get(cacheKey)
+    const cache = storage[cacheKey] || {}
     const keys = Object.keys(cache)
     cacheItemCount.value = keys.length
     
@@ -182,27 +204,32 @@ const loadCacheStats = async () => {
 const onUnitToggle = async () => {
   try {
     await browser.storage.local.set({ useGB: useGB.value })
-    showMessage(`Unit changed to ${useGB.value ? 'GB' : 'MB'}`, 'success')
+    showMessage(`${t('msg_unit_changed')} ${useGB.value ? 'GB' : 'MB'}`, 'success')
   } catch (error) {
     console.error('Error saving unit setting:', error)
-    showMessage('Error saving settings', 'error')
+    showMessage(t('msg_error_saving'), 'error')
   }
 }
 
 const clearLikedAddons = async () => {
   isClearing.value = true
   try {
+    if (!currentSteamId.value) {
+      showMessage(t('msg_not_logged_in'), 'error')
+      return
+    }
     const allStorage = await browser.storage.local.get(null)
-    const likedKeys = Object.keys(allStorage).filter(key => key.startsWith('likedItems_'))
+    const prefix = `likedItems_${currentSteamId.value}_`
+    const likedKeys = Object.keys(allStorage).filter(key => key.startsWith(prefix))
     
     for (const key of likedKeys) {
       await browser.storage.local.remove(key)
     }
     
-    showMessage('All liked addons cleared!', 'success')
+    showMessage(t('msg_liked_cleared'), 'success')
   } catch (error) {
     console.error('Error clearing liked addons:', error)
-    showMessage('Error clearing addons', 'error')
+    showMessage(t('msg_error_clearing'), 'error')
   } finally {
     isClearing.value = false
   }
@@ -213,20 +240,29 @@ const syncCollections = async () => {
   syncProgress.value = 0
   syncCurrent.value = 0
   syncTotal.value = 0
-  showMessage('Fetching collections list...', 'info')
+  showMessage(t('msg_fetching_list'), 'info')
   
   try {
+    const user = await CollectionService.getCurrentUser()
+    if (!user) {
+      showMessage(t('msg_not_logged_in'), 'error')
+      isSyncing.value = false
+      return
+    }
+    currentSteamId.value = user.steamId
+
     const collections = await CollectionService.getCollections()
     syncTotal.value = collections.length
     
     if (collections.length === 0) {
-      showMessage('No collections found to sync.', 'info')
+      showMessage(t('msg_no_collections'), 'info')
       isSyncing.value = false
       return
     }
 
-    const storage = await browser.storage.local.get('scsv_collection_cache')
-    const cache = (storage.scsv_collection_cache || {}) as Record<string, any[]>
+    const cacheKey = `scsv_collection_cache_${user.steamId}`
+    const storage = await browser.storage.local.get(cacheKey)
+    const cache = (storage[cacheKey] || {}) as Record<string, any[]>
 
     for (const collection of collections) {
       syncCurrent.value++
@@ -256,13 +292,14 @@ const syncCollections = async () => {
       }
     }
     
-    await browser.storage.local.set({ scsv_collection_cache: cache })
+    const cacheKeyToSave = `scsv_collection_cache_${currentSteamId.value}`
+    await browser.storage.local.set({ [cacheKeyToSave]: cache })
     await loadCacheStats()
     
-    showMessage('Sync complete!', 'success')
+    showMessage(t('msg_sync_complete'), 'success')
   } catch (error) {
     console.error('Error syncing collections:', error)
-    showMessage('Failed to fetch collections', 'error')
+    showMessage(t('msg_sync_failed'), 'error')
   } finally {
     isSyncing.value = false
   }

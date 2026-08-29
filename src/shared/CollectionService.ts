@@ -8,19 +8,26 @@ export interface SteamCollectionInfo {
 
 export class CollectionService {
   /**
-   * Fetches the current user's session ID by parsing the Steam homepage.
+   * Fetches the current user's session ID and Steam ID by parsing the Steam homepage.
    */
-  static async getSessionId(): Promise<string | null> {
+  static async getCurrentUser(): Promise<{ sessionId: string; steamId: string } | null> {
     try {
       const response = await fetch('https://steamcommunity.com/')
       if (!response.ok) return null
 
       const text = await response.text()
-      // Extract g_sessionID from the script tag
-      const match = text.match(/g_sessionID\s*=\s*["']([^"']+)["']/)
-      return match ? match[1] : null
+      const sessionMatch = text.match(/g_sessionID\s*=\s*["']([^"']+)["']/)
+      const steamIdMatch = text.match(/g_steamID\s*=\s*["']([^"']+)["']/)
+      
+      if (sessionMatch && steamIdMatch) {
+        return {
+          sessionId: sessionMatch[1],
+          steamId: steamIdMatch[1]
+        }
+      }
+      return null
     } catch (error) {
-      console.error('Failed to get Steam session ID:', error)
+      console.error('Failed to get Steam current user:', error)
       return null
     }
   }
@@ -29,8 +36,8 @@ export class CollectionService {
    * Fetches all collections for the logged-in user.
    */
   static async getCollections(appId?: string): Promise<SteamCollectionInfo[]> {
-    const sessionId = await this.getSessionId()
-    if (!sessionId) {
+    const user = await this.getCurrentUser()
+    if (!user) {
       throw new Error('Not logged into Steam')
     }
 
@@ -38,7 +45,7 @@ export class CollectionService {
     if (appId) {
       body.append('appid', appId)
     }
-    body.append('sessionid', sessionId)
+    body.append('sessionid', user.sessionId)
 
     const response = await fetch('https://steamcommunity.com/sharedfiles/ajaxgetmycollections', {
       method: 'POST',
@@ -69,13 +76,13 @@ export class CollectionService {
     itemId: string,
     action: 'add' | 'remove'
   ): Promise<boolean> {
-    const sessionId = await this.getSessionId()
-    if (!sessionId) {
+    const user = await this.getCurrentUser()
+    if (!user) {
       throw new Error('Not logged into Steam')
     }
 
     const body = new URLSearchParams()
-    body.append('sessionID', sessionId)
+    body.append('sessionID', user.sessionId)
     body.append('publishedfileid', itemId)
     body.append(`collections[${collectionId}][${action}]`, 'true')
     body.append(`collections[${collectionId}][title]`, collectionTitle)

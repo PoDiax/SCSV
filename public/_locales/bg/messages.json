@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Разширение на браузъра за преглед на размера на колекциите в Steam Workshop с едно щракване"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Синхронизиране на кеша"
+  },
+  "popup_syncing": {
+    "message": "Синхронизиране..."
+  },
+  "popup_clear_btn": {
+    "message": "Изчистване на харесани добавки"
+  },
+  "popup_clearing": {
+    "message": "Изчистване..."
+  },
+  "popup_cache_items": {
+    "message": "Кеширани елементи:"
+  },
+  "popup_view_cache": {
+    "message": "Преглед на данните от кеша"
+  },
+  "popup_hide_cache": {
+    "message": "Скриване на данните от кеша"
+  },
+  "popup_sync_progress": {
+    "message": "Моля, оставете отворено."
+  },
+  "popup_collections_text": {
+    "message": "Колекции"
+  },
+  "msg_not_logged_in": {
+    "message": "Не сте влезли в Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Единицата е променена на"
+  },
+  "msg_error_saving": {
+    "message": "Грешка при запазване"
+  },
+  "msg_liked_cleared": {
+    "message": "Харесаните добавки са изчистени!"
+  },
+  "msg_error_clearing": {
+    "message": "Грешка при изчистване"
+  },
+  "msg_fetching_list": {
+    "message": "Извличане на списък с колекции..."
+  },
+  "msg_no_collections": {
+    "message": "Няма намерени колекции за синхронизиране."
+  },
+  "msg_sync_complete": {
+    "message": "Синхронизирането завърши!"
+  },
+  "msg_sync_failed": {
+    "message": "Неуспешно извличане на колекции"
+  },
+  "content_add_to_collection": {
+    "message": "Добавяне към колекция"
+  },
+  "content_loading_collections": {
+    "message": "Зареждане на колекции..."
+  },
+  "content_no_collections_found": {
+    "message": "Няма намерени колекции за тази игра."
+  },
+  "content_no_collections_link_1": {
+    "message": "Изглежда нямате колекции за "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Щракнете "
+  },
+  "content_no_collections_link_3": {
+    "message": "тук"
+  },
+  "content_no_collections_link_4": {
+    "message": ", за да създадете."
+  },
+  "content_items": {
+    "message": "елемента"
+  },
+  "content_add": {
+    "message": "Добавяне"
+  },
+  "content_added": {
+    "message": "Добавено"
+  },
+  "content_error": {
+    "message": "Грешка"
+  },
+  "content_adding": {
+    "message": "Добавяне"
+  },
+  "content_added_all": {
+    "message": "Всички са добавени!"
+  },
+  "content_req_items_title": {
+    "message": "Добавяне и на необходимите елементи?"
+  },
+  "content_skip": {
+    "message": "Пропускане"
+  },
+  "content_add_selected": {
+    "message": "Добави избраните"
+  },
+  "content_calc_size": {
+    "message": "Изчисляване на размера"
+  },
+  "content_like_all": {
+    "message": "Харесай всички"
+  },
+  "content_all_liked": {
+    "message": "Всички са харесани"
+  },
+  "content_liked": {
+    "message": "Харесано"
+  },
+  "content_create_new": {
+    "message": "Създаване на нова колекция"
+  },
+  "content_login_required_like": {
+    "message": "Трябва да сте влезли, за да харесате елементи."
+  },
+  "content_many_private": {
+    "message": "Много елементи са частни или не притежавате играта!"
+  },
+  "content_in_collections": {
+    "message": "В колекции:"
+  }
+}

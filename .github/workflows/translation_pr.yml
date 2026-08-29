@@ -1,0 +1,46 @@
+name: Auto Translation PR
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  auto_translate:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'translation')
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run translation script
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node .github/scripts/auto_translate.js
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "fix(i18n): update translation from issue #${{ github.event.issue.number }}"
+          title: "fix(i18n): Update translation"
+          body: "This PR was automatically generated to fix a translation issue reported in #${{ github.event.issue.number }}."
+          branch: "i18n-fix-${{ github.event.issue.number }}"
+          delete-branch: true
+          labels: "translation, automated pr"
+          
+      - name: Comment on Issue
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thanks for your suggestion! I've automatically created a Pull Request with your translation fix.
+            The maintainers will review it shortly.

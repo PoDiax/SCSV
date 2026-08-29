@@ -1,7 +1,7 @@
 {
   "name": "steam-collection-size-viewer",
-  "version": "1.1.5",
-  "description": "Vue.js + TypeScript browser extension to view Steam workshop collection sizes with just a click of a button",
+  "version": "1.1.6",
+  "description": "Browser extension to view Steam workshop collection sizes with just a click of a button",
   "type": "module",
   "private": true,
   "scripts": {

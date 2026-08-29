@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Tek bir tıklamayla Steam Atölyesi koleksiyonlarının boyutlarını görmenizi sağlayan tarayıcı eklentisi"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Atölye"
+  },
+  "popup_sync_btn": {
+    "message": "Koleksiyon Önbelleğini Senkronize Et"
+  },
+  "popup_syncing": {
+    "message": "Senkronize ediliyor..."
+  },
+  "popup_clear_btn": {
+    "message": "Beğenilen Eklentileri Temizle"
+  },
+  "popup_clearing": {
+    "message": "Temizleniyor..."
+  },
+  "popup_cache_items": {
+    "message": "Önbellekteki Öğeler:"
+  },
+  "popup_view_cache": {
+    "message": "Önbellek Verilerini Görüntüle"
+  },
+  "popup_hide_cache": {
+    "message": "Önbellek Verilerini Gizle"
+  },
+  "popup_sync_progress": {
+    "message": "Lütfen açık tutun."
+  },
+  "popup_collections_text": {
+    "message": "Koleksiyon"
+  },
+  "msg_not_logged_in": {
+    "message": "Steam'e giriş yapılmadı."
+  },
+  "msg_unit_changed": {
+    "message": "Birim şuna değiştirildi:"
+  },
+  "msg_error_saving": {
+    "message": "Ayarları kaydederken hata oluştu"
+  },
+  "msg_liked_cleared": {
+    "message": "Mevcut kullanıcı için beğenilen eklentiler temizlendi!"
+  },
+  "msg_error_clearing": {
+    "message": "Eklentileri temizlerken hata oluştu"
+  },
+  "msg_fetching_list": {
+    "message": "Koleksiyon listesi getiriliyor..."
+  },
+  "msg_no_collections": {
+    "message": "Senkronize edilecek koleksiyon bulunamadı."
+  },
+  "msg_sync_complete": {
+    "message": "Senkronizasyon tamamlandı!"
+  },
+  "msg_sync_failed": {
+    "message": "Koleksiyonlar getirilemedi"
+  },
+  "content_add_to_collection": {
+    "message": "Koleksiyona Ekle"
+  },
+  "content_loading_collections": {
+    "message": "Koleksiyonlar Yükleniyor..."
+  },
+  "content_no_collections_found": {
+    "message": "Bu oyun için koleksiyon bulunamadı."
+  },
+  "content_no_collections_link_1": {
+    "message": "Görünüşe göre "
+  },
+  "content_no_collections_link_2": {
+    "message": " için hiç koleksiyonunuz yok. Bir tane oluşturmak için "
+  },
+  "content_no_collections_link_3": {
+    "message": "buraya"
+  },
+  "content_no_collections_link_4": {
+    "message": " tıklayın."
+  },
+  "content_items": {
+    "message": "öğe"
+  },
+  "content_add": {
+    "message": "Ekle"
+  },
+  "content_added": {
+    "message": "Eklendi"
+  },
+  "content_error": {
+    "message": "Hata"
+  },
+  "content_adding": {
+    "message": "Ekleniyor"
+  },
+  "content_added_all": {
+    "message": "Tümü Eklendi!"
+  },
+  "content_req_items_title": {
+    "message": "Gerekli öğeler de eklensin mi?"
+  },
+  "content_skip": {
+    "message": "Atla"
+  },
+  "content_add_selected": {
+    "message": "Seçilenleri Ekle"
+  },
+  "content_calc_size": {
+    "message": "Boyutu Hesapla"
+  },
+  "content_like_all": {
+    "message": "Tümünü Beğen"
+  },
+  "content_all_liked": {
+    "message": "Tümü Beğenildi"
+  },
+  "content_liked": {
+    "message": "Beğenildi"
+  },
+  "content_create_new": {
+    "message": "Yeni koleksiyon oluştur"
+  },
+  "content_login_required_like": {
+    "message": "Öğeleri beğenmek için giriş yapmış olmalısınız."
+  },
+  "content_many_private": {
+    "message": "Birçok öğe gizli veya oyuna sahip değilsiniz!"
+  },
+  "content_in_collections": {
+    "message": "Koleksiyonlarda:"
+  }
+}

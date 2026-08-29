@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "버튼 한 번 클릭으로 Steam 창작마당 컬렉션 크기를 볼 수 있는 브라우저 확장 프로그램"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "창작마당"
+  },
+  "popup_sync_btn": {
+    "message": "컬렉션 캐시 동기화"
+  },
+  "popup_syncing": {
+    "message": "동기화 중..."
+  },
+  "popup_clear_btn": {
+    "message": "좋아요 표시한 애드온 지우기"
+  },
+  "popup_clearing": {
+    "message": "지우는 중..."
+  },
+  "popup_cache_items": {
+    "message": "캐시된 항목:"
+  },
+  "popup_view_cache": {
+    "message": "캐시 데이터 보기"
+  },
+  "popup_hide_cache": {
+    "message": "캐시 데이터 숨기기"
+  },
+  "popup_sync_progress": {
+    "message": "창을 열어 두십시오."
+  },
+  "popup_collections_text": {
+    "message": "컬렉션"
+  },
+  "msg_not_logged_in": {
+    "message": "Steam에 로그인하지 않았습니다."
+  },
+  "msg_unit_changed": {
+    "message": "단위가 다음으로 변경됨"
+  },
+  "msg_error_saving": {
+    "message": "설정 저장 오류"
+  },
+  "msg_liked_cleared": {
+    "message": "현재 사용자가 좋아요를 표시한 애드온이 삭제되었습니다!"
+  },
+  "msg_error_clearing": {
+    "message": "애드온 지우기 오류"
+  },
+  "msg_fetching_list": {
+    "message": "컬렉션 목록 가져오는 중..."
+  },
+  "msg_no_collections": {
+    "message": "동기화할 컬렉션을 찾을 수 없습니다."
+  },
+  "msg_sync_complete": {
+    "message": "동기화 완료!"
+  },
+  "msg_sync_failed": {
+    "message": "컬렉션을 가져오지 못했습니다"
+  },
+  "content_add_to_collection": {
+    "message": "컬렉션에 추가"
+  },
+  "content_loading_collections": {
+    "message": "컬렉션 불러오는 중..."
+  },
+  "content_no_collections_found": {
+    "message": "이 게임에 대한 컬렉션을 찾을 수 없습니다."
+  },
+  "content_no_collections_link_1": {
+    "message": ""
+  },
+  "content_no_collections_link_2": {
+    "message": "에 대한 컬렉션이 없는 것 같습니다. 만들려면 "
+  },
+  "content_no_collections_link_3": {
+    "message": "여기"
+  },
+  "content_no_collections_link_4": {
+    "message": "를 클릭하세요."
+  },
+  "content_items": {
+    "message": "항목"
+  },
+  "content_add": {
+    "message": "추가"
+  },
+  "content_added": {
+    "message": "추가됨"
+  },
+  "content_error": {
+    "message": "오류"
+  },
+  "content_adding": {
+    "message": "추가 중"
+  },
+  "content_added_all": {
+    "message": "모두 추가됨!"
+  },
+  "content_req_items_title": {
+    "message": "필수 항목도 추가하시겠습니까?"
+  },
+  "content_skip": {
+    "message": "건너뛰기"
+  },
+  "content_add_selected": {
+    "message": "선택 항목 추가"
+  },
+  "content_calc_size": {
+    "message": "크기 계산"
+  },
+  "content_like_all": {
+    "message": "모두 좋아요"
+  },
+  "content_all_liked": {
+    "message": "모두 좋아요 표시됨"
+  },
+  "content_liked": {
+    "message": "좋아요"
+  },
+  "content_create_new": {
+    "message": "새 컬렉션 만들기"
+  },
+  "content_login_required_like": {
+    "message": "항목에 좋아요를 표시하려면 로그인해야 합니다."
+  },
+  "content_many_private": {
+    "message": "많은 항목이 비공개/숨겨져 있거나 게임을 소유하고 있지 않습니다!"
+  },
+  "content_in_collections": {
+    "message": "컬렉션 포함됨:"
+  }
+}

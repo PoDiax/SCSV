@@ -1,0 +1,66 @@
+name: Translation Fix / Suggestion
+description: Fix a typo, incorrect translation, or suggest a better phrase for a specific language.
+title: "[i18n] "
+labels: ["translation", "enhancement"]
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: Select the language you are suggesting a fix for.
+      options:
+        - "en (English)"
+        - "zh_CN (Simplified Chinese)"
+        - "ru (Russian)"
+        - "es (Spanish)"
+        - "de (German)"
+        - "fr (French)"
+        - "ja (Japanese)"
+        - "pt_BR (Brazilian Portuguese)"
+        - "ko (Korean)"
+        - "pl (Polish)"
+        - "tr (Turkish)"
+        - "zh_TW (Traditional Chinese)"
+        - "it (Italian)"
+        - "hu (Hungarian)"
+        - "cs (Czech)"
+        - "nl (Dutch)"
+        - "fi (Finnish)"
+        - "da (Danish)"
+        - "sv (Swedish)"
+        - "no (Norwegian)"
+        - "ro (Romanian)"
+        - "el (Greek)"
+        - "bg (Bulgarian)"
+        - "uk (Ukrainian)"
+        - "th (Thai)"
+        - "vi (Vietnamese)"
+        - "pt_PT (Portuguese - Portugal)"
+        - "es_419 (Spanish - Latin America)"
+        - "id (Indonesian)"
+    validations:
+      required: true
+      
+  - type: input
+    id: current_text
+    attributes:
+      label: Current Text
+      description: Copy and paste the exact text as it currently appears in the extension. Our automated bot needs this to find the text to replace!
+    validations:
+      required: true
+      
+  - type: input
+    id: new_text
+    attributes:
+      label: Suggested Fix (New Text)
+      description: What should the text be changed to?
+    validations:
+      required: true
+      
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Additional Information
+      description: Where does this appear? Feel free to provide screenshots or context.
+    validations:
+      required: false

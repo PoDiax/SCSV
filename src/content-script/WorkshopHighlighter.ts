@@ -1,17 +1,31 @@
 import browser from 'webextension-polyfill'
 import { SteamItemManager } from './SteamItemManager'
+import { CollectionService } from '../shared/CollectionService'
 import './styles.css'
 
 export class WorkshopHighlighter {
   private cache: Record<string, string[]> = {}
 
   constructor() {
-    this.init()
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        void this.init().catch(console.error)
+      })
+    } else {
+      void this.init().catch(console.error)
+    }
   }
 
   private async init() {
-    const storage = await browser.storage.local.get('scsv_collection_cache')
-    this.cache = (storage.scsv_collection_cache || {}) as Record<string, any[]>
+    const user = await CollectionService.getCurrentUser()
+    if (!user) {
+      console.log('SCSV: Not logged in, highlighting disabled.')
+      return
+    }
+
+    const cacheKey = `scsv_collection_cache_${user.steamId}`
+    const storage = await browser.storage.local.get(cacheKey)
+    this.cache = (storage[cacheKey] || {}) as Record<string, any[]>
 
     this.highlightExistingItems()
     this.setupObserver()
@@ -29,6 +43,8 @@ export class WorkshopHighlighter {
   }
 
   private setupObserver() {
+    let highlightTimeout: number | undefined;
+
     const observer = new MutationObserver((mutations) => {
       let shouldHighlight = false
       for (const mutation of mutations) {
@@ -38,11 +54,22 @@ export class WorkshopHighlighter {
         }
       }
       if (shouldHighlight) {
-        this.highlightExistingItems()
+        if (highlightTimeout !== undefined) {
+          window.clearTimeout(highlightTimeout);
+        }
+        highlightTimeout = window.setTimeout(() => {
+          this.highlightExistingItems()
+        }, 100);
       }
     })
 
-    observer.observe(document.body, { childList: true, subtree: true })
+    if (document.body) {
+      observer.observe(document.body, { childList: true, subtree: true })
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        observer.observe(document.body, { childList: true, subtree: true })
+      })
+    }
   }
 
   private highlightExistingItems() {
@@ -66,8 +93,8 @@ export class WorkshopHighlighter {
 
       const quickAddBtn = document.createElement('button')
       quickAddBtn.className = 'scsv-quick-add-btn'
-      quickAddBtn.textContent = '+ Add'
-      quickAddBtn.title = 'Add to Collection'
+      quickAddBtn.textContent = `+ ${browser.i18n.getMessage('content_add')}`
+      quickAddBtn.title = browser.i18n.getMessage('content_add_to_collection')
       quickAddBtn.onclick = (e) => {
         e.preventDefault()
         e.stopPropagation()
@@ -86,14 +113,28 @@ export class WorkshopHighlighter {
         titleEl.style.textShadow = '0 0 5px rgba(139, 197, 63, 0.4)'
         titleEl.style.fontWeight = 'bold'
         
-        const linksHtml = collections.map((c: any) => {
-          if (typeof c === 'string') return c
-          return `<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=${c.id}" target="_blank" class="scsv-collection-link scsv-processed">${c.title}</a>`
-        }).join('<br>')
-        
         const badge = document.createElement('div')
         badge.className = 'scsv-collection-badge'
-        badge.innerHTML = `<strong style="color: #8bc53f;">In Collections:</strong><br>${linksHtml}`
+        
+        const strong = document.createElement('strong')
+        strong.style.color = '#8bc53f'
+        strong.textContent = browser.i18n.getMessage('content_in_collections')
+        badge.appendChild(strong)
+        badge.appendChild(document.createElement('br'))
+        
+        collections.forEach((c: any, index: number) => {
+          if (typeof c === 'string') {
+            badge.appendChild(document.createTextNode(c))
+          } else {
+            const a = document.createElement('a')
+            a.href = `https://steamcommunity.com/sharedfiles/filedetails/?id=${c.id}`
+            a.target = '_blank'
+            a.className = 'scsv-collection-link scsv-processed'
+            a.textContent = c.title
+            badge.appendChild(a)
+          }
+          badge.appendChild(document.createElement('br'))
+        })
         
         const actionsDiv = document.createElement('div')
         actionsDiv.style.marginTop = '4px'

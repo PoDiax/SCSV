@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Extensão de navegador para visualizar os tamanhos das coleções da Oficina Steam com apenas um clique"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Oficina"
+  },
+  "popup_sync_btn": {
+    "message": "Sincronizar Cache de Coleções"
+  },
+  "popup_syncing": {
+    "message": "Sincronizando..."
+  },
+  "popup_clear_btn": {
+    "message": "Limpar Addons Curtidos"
+  },
+  "popup_clearing": {
+    "message": "Limpando..."
+  },
+  "popup_cache_items": {
+    "message": "Itens em Cache:"
+  },
+  "popup_view_cache": {
+    "message": "Ver Dados de Cache"
+  },
+  "popup_hide_cache": {
+    "message": "Ocultar Dados de Cache"
+  },
+  "popup_sync_progress": {
+    "message": "Por favor, mantenha aberto."
+  },
+  "popup_collections_text": {
+    "message": "Coleções"
+  },
+  "msg_not_logged_in": {
+    "message": "Não está logado no Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unidade alterada para"
+  },
+  "msg_error_saving": {
+    "message": "Erro ao salvar configurações"
+  },
+  "msg_liked_cleared": {
+    "message": "Addons curtidos limpos para o usuário atual!"
+  },
+  "msg_error_clearing": {
+    "message": "Erro ao limpar addons"
+  },
+  "msg_fetching_list": {
+    "message": "Buscando lista de coleções..."
+  },
+  "msg_no_collections": {
+    "message": "Nenhuma coleção encontrada para sincronizar."
+  },
+  "msg_sync_complete": {
+    "message": "Sincronização concluída!"
+  },
+  "msg_sync_failed": {
+    "message": "Falha ao buscar coleções"
+  },
+  "content_add_to_collection": {
+    "message": "Adicionar à Coleção"
+  },
+  "content_loading_collections": {
+    "message": "Carregando Coleções..."
+  },
+  "content_no_collections_found": {
+    "message": "Nenhuma coleção encontrada para este jogo."
+  },
+  "content_no_collections_link_1": {
+    "message": "Parece que você não tem nenhuma coleção para "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Clique "
+  },
+  "content_no_collections_link_3": {
+    "message": "aqui"
+  },
+  "content_no_collections_link_4": {
+    "message": " para criar uma."
+  },
+  "content_items": {
+    "message": "itens"
+  },
+  "content_add": {
+    "message": "Adicionar"
+  },
+  "content_added": {
+    "message": "Adicionado"
+  },
+  "content_error": {
+    "message": "Erro"
+  },
+  "content_adding": {
+    "message": "Adicionando"
+  },
+  "content_added_all": {
+    "message": "Tudo Adicionado!"
+  },
+  "content_req_items_title": {
+    "message": "Adicionar também itens necessários?"
+  },
+  "content_skip": {
+    "message": "Pular"
+  },
+  "content_add_selected": {
+    "message": "Adicionar Selecionados"
+  },
+  "content_calc_size": {
+    "message": "Calcular Tamanho"
+  },
+  "content_like_all": {
+    "message": "Curtir Tudo"
+  },
+  "content_all_liked": {
+    "message": "Tudo Curtido"
+  },
+  "content_liked": {
+    "message": "Curtido"
+  },
+  "content_create_new": {
+    "message": "Criar nova coleção"
+  },
+  "content_login_required_like": {
+    "message": "Você precisa estar logado para curtir os itens."
+  },
+  "content_many_private": {
+    "message": "Muitos itens são privados ou você não possui o jogo!"
+  },
+  "content_in_collections": {
+    "message": "Nas Coleções:"
+  }
+}

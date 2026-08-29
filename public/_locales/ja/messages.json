@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "ボタンをクリックするだけでSteamワークショップのコレクションサイズを表示するブラウザ拡張機能"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "ワークショップ"
+  },
+  "popup_sync_btn": {
+    "message": "コレクションキャッシュの同期"
+  },
+  "popup_syncing": {
+    "message": "同期中..."
+  },
+  "popup_clear_btn": {
+    "message": "いいねしたアドオンをクリア"
+  },
+  "popup_clearing": {
+    "message": "クリア中..."
+  },
+  "popup_cache_items": {
+    "message": "キャッシュされたアイテム:"
+  },
+  "popup_view_cache": {
+    "message": "キャッシュデータを表示"
+  },
+  "popup_hide_cache": {
+    "message": "キャッシュデータを隠す"
+  },
+  "popup_sync_progress": {
+    "message": "開いたままにしてください。"
+  },
+  "popup_collections_text": {
+    "message": "コレクション"
+  },
+  "msg_not_logged_in": {
+    "message": "Steamにログインしていません。"
+  },
+  "msg_unit_changed": {
+    "message": "単位が変更されました"
+  },
+  "msg_error_saving": {
+    "message": "設定の保存中にエラーが発生しました"
+  },
+  "msg_liked_cleared": {
+    "message": "現在のユーザーのいいねしたアドオンがクリアされました！"
+  },
+  "msg_error_clearing": {
+    "message": "アドオンのクリア中にエラーが発生しました"
+  },
+  "msg_fetching_list": {
+    "message": "コレクションリストを取得中..."
+  },
+  "msg_no_collections": {
+    "message": "同期するコレクションが見つかりません。"
+  },
+  "msg_sync_complete": {
+    "message": "同期完了！"
+  },
+  "msg_sync_failed": {
+    "message": "コレクションの取得に失敗しました"
+  },
+  "content_add_to_collection": {
+    "message": "コレクションに追加"
+  },
+  "content_loading_collections": {
+    "message": "コレクションを読み込み中..."
+  },
+  "content_no_collections_found": {
+    "message": "このゲームのコレクションが見つかりません。"
+  },
+  "content_no_collections_link_1": {
+    "message": "「"
+  },
+  "content_no_collections_link_2": {
+    "message": "」のコレクションがないようです。"
+  },
+  "content_no_collections_link_3": {
+    "message": "ここ"
+  },
+  "content_no_collections_link_4": {
+    "message": "をクリックして作成してください。"
+  },
+  "content_items": {
+    "message": "アイテム"
+  },
+  "content_add": {
+    "message": "追加"
+  },
+  "content_added": {
+    "message": "追加済み"
+  },
+  "content_error": {
+    "message": "エラー"
+  },
+  "content_adding": {
+    "message": "追加中"
+  },
+  "content_added_all": {
+    "message": "すべて追加しました！"
+  },
+  "content_req_items_title": {
+    "message": "必要なアイテムも追加しますか？"
+  },
+  "content_skip": {
+    "message": "スキップ"
+  },
+  "content_add_selected": {
+    "message": "選択したアイテムを追加"
+  },
+  "content_calc_size": {
+    "message": "サイズを計算"
+  },
+  "content_like_all": {
+    "message": "すべていいね"
+  },
+  "content_all_liked": {
+    "message": "すべていいね済み"
+  },
+  "content_liked": {
+    "message": "いいね"
+  },
+  "content_create_new": {
+    "message": "新しいコレクションを作成"
+  },
+  "content_login_required_like": {
+    "message": "アイテムにいいねするにはログインする必要があります。"
+  },
+  "content_many_private": {
+    "message": "多くのアイテムが非公開/非表示か、ゲームを所有していません！"
+  },
+  "content_in_collections": {
+    "message": "以下のコレクションに含まれています："
+  }
+}

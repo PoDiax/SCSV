@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Selainlaajennus Steam Workshop -kokoelmien koon tarkastelemiseen yhdellä napsautuksella"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Synkronoi kokoelmien välimuisti"
+  },
+  "popup_syncing": {
+    "message": "Synkronoidaan..."
+  },
+  "popup_clear_btn": {
+    "message": "Tyhjennä tykätyt lisäosat"
+  },
+  "popup_clearing": {
+    "message": "Tyhjennetään..."
+  },
+  "popup_cache_items": {
+    "message": "Välimuistissa olevat kohteet:"
+  },
+  "popup_view_cache": {
+    "message": "Näytä välimuistin tiedot"
+  },
+  "popup_hide_cache": {
+    "message": "Piilota välimuistin tiedot"
+  },
+  "popup_sync_progress": {
+    "message": "Pidä avoinna."
+  },
+  "popup_collections_text": {
+    "message": "Kokoelmat"
+  },
+  "msg_not_logged_in": {
+    "message": "Ei kirjauduttu Steamiin."
+  },
+  "msg_unit_changed": {
+    "message": "Yksikkö vaihdettu"
+  },
+  "msg_error_saving": {
+    "message": "Virhe tallennettaessa asetuksia"
+  },
+  "msg_liked_cleared": {
+    "message": "Tykätyt lisäosat tyhjennetty nykyiseltä käyttäjältä!"
+  },
+  "msg_error_clearing": {
+    "message": "Virhe tyhjennettäessä"
+  },
+  "msg_fetching_list": {
+    "message": "Haetaan kokoelmaluetteloa..."
+  },
+  "msg_no_collections": {
+    "message": "Synkronoitavia kokoelmia ei löytynyt."
+  },
+  "msg_sync_complete": {
+    "message": "Synkronointi valmis!"
+  },
+  "msg_sync_failed": {
+    "message": "Kokoelmien haku epäonnistui"
+  },
+  "content_add_to_collection": {
+    "message": "Lisää kokoelmaan"
+  },
+  "content_loading_collections": {
+    "message": "Ladataan kokoelmia..."
+  },
+  "content_no_collections_found": {
+    "message": "Tälle pelille ei löytynyt kokoelmia."
+  },
+  "content_no_collections_link_1": {
+    "message": "Näyttää siltä, ettei sinulla ole kokoelmia pelille "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Napsauta "
+  },
+  "content_no_collections_link_3": {
+    "message": "tästä"
+  },
+  "content_no_collections_link_4": {
+    "message": " luodaksesi sellaisen."
+  },
+  "content_items": {
+    "message": "kohteet"
+  },
+  "content_add": {
+    "message": "Lisää"
+  },
+  "content_added": {
+    "message": "Lisätty"
+  },
+  "content_error": {
+    "message": "Virhe"
+  },
+  "content_adding": {
+    "message": "Lisätään"
+  },
+  "content_added_all": {
+    "message": "Kaikki lisätty!"
+  },
+  "content_req_items_title": {
+    "message": "Lisätäänkö myös vaaditut kohteet?"
+  },
+  "content_skip": {
+    "message": "Ohita"
+  },
+  "content_add_selected": {
+    "message": "Lisää valitut"
+  },
+  "content_calc_size": {
+    "message": "Laske koko"
+  },
+  "content_like_all": {
+    "message": "Tykkää kaikista"
+  },
+  "content_all_liked": {
+    "message": "Kaikista tykätty"
+  },
+  "content_liked": {
+    "message": "Tykätty"
+  },
+  "content_create_new": {
+    "message": "Luo uusi kokoelma"
+  },
+  "content_login_required_like": {
+    "message": "Sinun on kirjauduttava sisään tykätäksesi kohteista."
+  },
+  "content_many_private": {
+    "message": "Monet kohteet ovat yksityisiä tai et omista peliä!"
+  },
+  "content_in_collections": {
+    "message": "Kokoelmissa:"
+  }
+}

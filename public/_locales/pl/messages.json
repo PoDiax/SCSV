@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Rozszerzenie przeglądarki do sprawdzania rozmiaru kolekcji w warsztacie Steam jednym kliknięciem"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Warsztat"
+  },
+  "popup_sync_btn": {
+    "message": "Synchronizuj Pamięć Podręczną Kolekcji"
+  },
+  "popup_syncing": {
+    "message": "Synchronizowanie..."
+  },
+  "popup_clear_btn": {
+    "message": "Wyczyść Polubione Dodatki"
+  },
+  "popup_clearing": {
+    "message": "Czyszczenie..."
+  },
+  "popup_cache_items": {
+    "message": "Zapisane w Pamięci Podręcznej Elementy:"
+  },
+  "popup_view_cache": {
+    "message": "Pokaż Dane Pamięci Podręcznej"
+  },
+  "popup_hide_cache": {
+    "message": "Ukryj Dane Pamięci Podręcznej"
+  },
+  "popup_sync_progress": {
+    "message": "Proszę, zostaw otwarte."
+  },
+  "popup_collections_text": {
+    "message": "Kolekcji"
+  },
+  "msg_not_logged_in": {
+    "message": "Nie jesteś zalogowany na Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Jednostka zmieniona na"
+  },
+  "msg_error_saving": {
+    "message": "Błąd zapisu ustawień"
+  },
+  "msg_liked_cleared": {
+    "message": "Polubione dodatki zostały wyczyszczone dla bieżącego użytkownika!"
+  },
+  "msg_error_clearing": {
+    "message": "Błąd czyszczenia dodatków"
+  },
+  "msg_fetching_list": {
+    "message": "Pobieranie listy kolekcji..."
+  },
+  "msg_no_collections": {
+    "message": "Nie znaleziono kolekcji do synchronizacji."
+  },
+  "msg_sync_complete": {
+    "message": "Synchronizacja zakończona!"
+  },
+  "msg_sync_failed": {
+    "message": "Nie udało się pobrać kolekcji"
+  },
+  "content_add_to_collection": {
+    "message": "Dodaj do Kolekcji"
+  },
+  "content_loading_collections": {
+    "message": "Wczytywanie Kolekcji..."
+  },
+  "content_no_collections_found": {
+    "message": "Nie znaleziono kolekcji dla tej gry."
+  },
+  "content_no_collections_link_1": {
+    "message": "Wygląda na to, że nie masz żadnych kolekcji dla "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Kliknij "
+  },
+  "content_no_collections_link_3": {
+    "message": "tutaj"
+  },
+  "content_no_collections_link_4": {
+    "message": " aby ją utworzyć."
+  },
+  "content_items": {
+    "message": "elementów"
+  },
+  "content_add": {
+    "message": "Dodaj"
+  },
+  "content_added": {
+    "message": "Dodano"
+  },
+  "content_error": {
+    "message": "Błąd"
+  },
+  "content_adding": {
+    "message": "Dodawanie"
+  },
+  "content_added_all": {
+    "message": "Dodano Wszystko!"
+  },
+  "content_req_items_title": {
+    "message": "Dodać również wymagane elementy?"
+  },
+  "content_skip": {
+    "message": "Pomiń"
+  },
+  "content_add_selected": {
+    "message": "Dodaj Zaznaczone"
+  },
+  "content_calc_size": {
+    "message": "Oblicz Rozmiar"
+  },
+  "content_like_all": {
+    "message": "Polub Wszystkie"
+  },
+  "content_all_liked": {
+    "message": "Wszystko Polubione"
+  },
+  "content_liked": {
+    "message": "Polubiono"
+  },
+  "content_create_new": {
+    "message": "Utwórz nową kolekcję"
+  },
+  "content_login_required_like": {
+    "message": "Musisz być zalogowany, aby polubić elementy."
+  },
+  "content_many_private": {
+    "message": "Wiele elementów jest prywatnych lub nie posiadasz tej gry!"
+  },
+  "content_in_collections": {
+    "message": "W Kolekcjach:"
+  }
+}

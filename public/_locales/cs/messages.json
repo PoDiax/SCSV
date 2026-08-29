@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Rozšíření prohlížeče pro zobrazení velikosti kolekcí Steam Workshop jedním kliknutím"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Synchronizovat mezipaměť kolekcí"
+  },
+  "popup_syncing": {
+    "message": "Synchronizace..."
+  },
+  "popup_clear_btn": {
+    "message": "Vymazat oblíbené doplňky"
+  },
+  "popup_clearing": {
+    "message": "Vymazávání..."
+  },
+  "popup_cache_items": {
+    "message": "Položky v mezipaměti:"
+  },
+  "popup_view_cache": {
+    "message": "Zobrazit data mezipaměti"
+  },
+  "popup_hide_cache": {
+    "message": "Skrýt data mezipaměti"
+  },
+  "popup_sync_progress": {
+    "message": "Prosím nechte otevřené."
+  },
+  "popup_collections_text": {
+    "message": "Kolekce"
+  },
+  "msg_not_logged_in": {
+    "message": "Nejste přihlášeni do služby Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Jednotka změněna na"
+  },
+  "msg_error_saving": {
+    "message": "Chyba při ukládání nastavení"
+  },
+  "msg_liked_cleared": {
+    "message": "Oblíbené doplňky byly pro aktuálního uživatele vymazány!"
+  },
+  "msg_error_clearing": {
+    "message": "Chyba při vymazávání doplňků"
+  },
+  "msg_fetching_list": {
+    "message": "Načítání seznamu kolekcí..."
+  },
+  "msg_no_collections": {
+    "message": "Nenalezeny žádné kolekce k synchronizaci."
+  },
+  "msg_sync_complete": {
+    "message": "Synchronizace dokončena!"
+  },
+  "msg_sync_failed": {
+    "message": "Nepodařilo se načíst kolekce"
+  },
+  "content_add_to_collection": {
+    "message": "Přidat do kolekce"
+  },
+  "content_loading_collections": {
+    "message": "Načítání kolekcí..."
+  },
+  "content_no_collections_found": {
+    "message": "Pro tuto hru nebyly nalezeny žádné kolekce."
+  },
+  "content_no_collections_link_1": {
+    "message": "Zdá se, že pro "
+  },
+  "content_no_collections_link_2": {
+    "message": " nemáte žádné kolekce. Kliknutím "
+  },
+  "content_no_collections_link_3": {
+    "message": "zde"
+  },
+  "content_no_collections_link_4": {
+    "message": " ji vytvořte."
+  },
+  "content_items": {
+    "message": "položek"
+  },
+  "content_add": {
+    "message": "Přidat"
+  },
+  "content_added": {
+    "message": "Přidáno"
+  },
+  "content_error": {
+    "message": "Chyba"
+  },
+  "content_adding": {
+    "message": "Přidávání"
+  },
+  "content_added_all": {
+    "message": "Vše přidáno!"
+  },
+  "content_req_items_title": {
+    "message": "Přidat také požadované položky?"
+  },
+  "content_skip": {
+    "message": "Přeskočit"
+  },
+  "content_add_selected": {
+    "message": "Přidat vybrané"
+  },
+  "content_calc_size": {
+    "message": "Vypočítat velikost"
+  },
+  "content_like_all": {
+    "message": "Líbí se mi vše"
+  },
+  "content_all_liked": {
+    "message": "Vše oblíbeno"
+  },
+  "content_liked": {
+    "message": "Oblíbeno"
+  },
+  "content_create_new": {
+    "message": "Vytvořit novou kolekci"
+  },
+  "content_login_required_like": {
+    "message": "K označení položek jako oblíbených musíte být přihlášeni."
+  },
+  "content_many_private": {
+    "message": "Mnoho položek je soukromých/skrytých, nebo hru nevlastníte!"
+  },
+  "content_in_collections": {
+    "message": "V kolekcích:"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "只要點擊一個按鈕，即可在瀏覽器中檢視 Steam 創意工坊合集的大小"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "創意工坊"
+  },
+  "popup_sync_btn": {
+    "message": "同步合集快取"
+  },
+  "popup_syncing": {
+    "message": "正在同步..."
+  },
+  "popup_clear_btn": {
+    "message": "清除已按讚的附加元件"
+  },
+  "popup_clearing": {
+    "message": "正在清除..."
+  },
+  "popup_cache_items": {
+    "message": "快取的物品："
+  },
+  "popup_view_cache": {
+    "message": "檢視快取資料"
+  },
+  "popup_hide_cache": {
+    "message": "隱藏快取資料"
+  },
+  "popup_sync_progress": {
+    "message": "請保持開啟狀態。"
+  },
+  "popup_collections_text": {
+    "message": "個合集"
+  },
+  "msg_not_logged_in": {
+    "message": "未登入 Steam。"
+  },
+  "msg_unit_changed": {
+    "message": "單位已變更為"
+  },
+  "msg_error_saving": {
+    "message": "儲存設定時發生錯誤"
+  },
+  "msg_liked_cleared": {
+    "message": "目前使用者的已按讚附加元件已清除！"
+  },
+  "msg_error_clearing": {
+    "message": "清除附加元件時發生錯誤"
+  },
+  "msg_fetching_list": {
+    "message": "正在取得合集清單..."
+  },
+  "msg_no_collections": {
+    "message": "找不到需要同步的合集。"
+  },
+  "msg_sync_complete": {
+    "message": "同步完成！"
+  },
+  "msg_sync_failed": {
+    "message": "取得合集失敗"
+  },
+  "content_add_to_collection": {
+    "message": "新增至合集"
+  },
+  "content_loading_collections": {
+    "message": "正在載入合集..."
+  },
+  "content_no_collections_found": {
+    "message": "找不到此遊戲的任何合集。"
+  },
+  "content_no_collections_link_1": {
+    "message": "看起來您沒有 "
+  },
+  "content_no_collections_link_2": {
+    "message": " 的任何合集。點擊 "
+  },
+  "content_no_collections_link_3": {
+    "message": "此處"
+  },
+  "content_no_collections_link_4": {
+    "message": " 建立一個。"
+  },
+  "content_items": {
+    "message": "個物品"
+  },
+  "content_add": {
+    "message": "新增"
+  },
+  "content_added": {
+    "message": "已新增"
+  },
+  "content_error": {
+    "message": "錯誤"
+  },
+  "content_adding": {
+    "message": "正在新增"
+  },
+  "content_added_all": {
+    "message": "已全部新增！"
+  },
+  "content_req_items_title": {
+    "message": "同時新增必需的物品嗎？"
+  },
+  "content_skip": {
+    "message": "略過"
+  },
+  "content_add_selected": {
+    "message": "新增所選項"
+  },
+  "content_calc_size": {
+    "message": "計算大小"
+  },
+  "content_like_all": {
+    "message": "全部按讚"
+  },
+  "content_all_liked": {
+    "message": "已全部按讚"
+  },
+  "content_liked": {
+    "message": "已按讚"
+  },
+  "content_create_new": {
+    "message": "建立新合集"
+  },
+  "content_login_required_like": {
+    "message": "您需要登入才能為物品按讚。"
+  },
+  "content_many_private": {
+    "message": "許多物品是私人/隱藏的，或者您未擁有該遊戲！"
+  },
+  "content_in_collections": {
+    "message": "在以下合集中："
+  }
+}

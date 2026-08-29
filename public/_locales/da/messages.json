@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Browser-udvidelse til at se størrelsen af Steam Workshop-kollektioner med et enkelt klik"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Synkroniser kollektions-cache"
+  },
+  "popup_syncing": {
+    "message": "Synkroniserer..."
+  },
+  "popup_clear_btn": {
+    "message": "Ryd likede tilføjelser"
+  },
+  "popup_clearing": {
+    "message": "Rydder..."
+  },
+  "popup_cache_items": {
+    "message": "Cachede elementer:"
+  },
+  "popup_view_cache": {
+    "message": "Vis cache-data"
+  },
+  "popup_hide_cache": {
+    "message": "Skjul cache-data"
+  },
+  "popup_sync_progress": {
+    "message": "Hold venligst åben."
+  },
+  "popup_collections_text": {
+    "message": "Kollektioner"
+  },
+  "msg_not_logged_in": {
+    "message": "Ikke logget ind på Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Enhed ændret til"
+  },
+  "msg_error_saving": {
+    "message": "Fejl ved lagring af indstillinger"
+  },
+  "msg_liked_cleared": {
+    "message": "Likede tilføjelser ryddet for nuværende bruger!"
+  },
+  "msg_error_clearing": {
+    "message": "Fejl ved rydning"
+  },
+  "msg_fetching_list": {
+    "message": "Henter kollektionsliste..."
+  },
+  "msg_no_collections": {
+    "message": "Ingen kollektioner fundet til synkronisering."
+  },
+  "msg_sync_complete": {
+    "message": "Synkronisering fuldført!"
+  },
+  "msg_sync_failed": {
+    "message": "Kunne ikke hente kollektioner"
+  },
+  "content_add_to_collection": {
+    "message": "Føj til kollektion"
+  },
+  "content_loading_collections": {
+    "message": "Indlæser kollektioner..."
+  },
+  "content_no_collections_found": {
+    "message": "Ingen kollektioner fundet til dette spil."
+  },
+  "content_no_collections_link_1": {
+    "message": "Det ser ikke ud til, at du har nogen kollektioner til "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Klik "
+  },
+  "content_no_collections_link_3": {
+    "message": "her"
+  },
+  "content_no_collections_link_4": {
+    "message": " for at oprette en."
+  },
+  "content_items": {
+    "message": "elementer"
+  },
+  "content_add": {
+    "message": "Tilføj"
+  },
+  "content_added": {
+    "message": "Tilføjet"
+  },
+  "content_error": {
+    "message": "Fejl"
+  },
+  "content_adding": {
+    "message": "Tilføjer"
+  },
+  "content_added_all": {
+    "message": "Alle tilføjet!"
+  },
+  "content_req_items_title": {
+    "message": "Tilføj også krævede elementer?"
+  },
+  "content_skip": {
+    "message": "Spring over"
+  },
+  "content_add_selected": {
+    "message": "Tilføj valgte"
+  },
+  "content_calc_size": {
+    "message": "Beregn størrelse"
+  },
+  "content_like_all": {
+    "message": "Like alle"
+  },
+  "content_all_liked": {
+    "message": "Alle liket"
+  },
+  "content_liked": {
+    "message": "Liket"
+  },
+  "content_create_new": {
+    "message": "Opret ny kollektion"
+  },
+  "content_login_required_like": {
+    "message": "Du skal være logget ind for at like elementer."
+  },
+  "content_many_private": {
+    "message": "Mange elementer er private eller du ejer ikke spillet!"
+  },
+  "content_in_collections": {
+    "message": "I Kollektioner:"
+  }
+}

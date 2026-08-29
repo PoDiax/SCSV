@@ -27,23 +27,44 @@ You can install SCSV directly from the [Chrome Web Store](https://chromewebstore
 
 You can install SCSV directly from the [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/steam-collection-size-viewer/) page.
 
-## Manual Installation
+## Build Instructions
 
-If you prefer to build the extension from source:
+These step-by-step instructions are provided to build an exact copy of the add-on code from source.
+
+### Requirements
+
+* **Operating System**: Windows, macOS, or Linux
+* **Build Environment**: Node.js and npm (or yarn)
+* **Node.js version**: v18.0.0 or higher
+* **npm version**: v8.0.0 or higher (included with Node.js)
+
+### Installation Instructions for Prerequisites
+
+1. Download and install Node.js (which includes npm) from the official website: [https://nodejs.org/](https://nodejs.org/)
+2. Verify the installation by opening a terminal or command prompt and running:
+   ```bash
+   node -v
+   npm -v
+   ```
+
+### Build Instructions
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/PoDiax/SCSV.git
-   ```
-
-2. Install dependencies and build:
-   ```bash
    cd SCSV
-   yarn install
-   yarn build
+   ```
+2. Open a terminal or command prompt and navigate to the root directory of the source code.
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+4. Execute the build process:
+   ```bash
+   npm run build
    ```
 
-3. Load the extension in your browser:
+5. Load the compiled extension in your browser:
    * **Chrome**: Go to `chrome://extensions/`, enable "Developer mode", click "Load unpacked", and select the `dist/chrome` folder.
    * **Firefox**: Go to `about:debugging#/runtime/this-firefox`, click "Load Temporary Add-on", and select the `manifest.json` file inside the `dist/firefox` folder.
 

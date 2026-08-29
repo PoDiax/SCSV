@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Розширення для браузера, щоб дізнатися розмір колекції в Steam Workshop в один клік"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Синхронізувати кеш"
+  },
+  "popup_syncing": {
+    "message": "Синхронізація..."
+  },
+  "popup_clear_btn": {
+    "message": "Очистити вподобані аддони"
+  },
+  "popup_clearing": {
+    "message": "Очищення..."
+  },
+  "popup_cache_items": {
+    "message": "Елементи в кеші:"
+  },
+  "popup_view_cache": {
+    "message": "Переглянути дані кешу"
+  },
+  "popup_hide_cache": {
+    "message": "Сховати дані кешу"
+  },
+  "popup_sync_progress": {
+    "message": "Будь ласка, залиште відкритим."
+  },
+  "popup_collections_text": {
+    "message": "Колекції"
+  },
+  "msg_not_logged_in": {
+    "message": "Ви не ввійшли в Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Одиницю змінено на"
+  },
+  "msg_error_saving": {
+    "message": "Помилка збереження"
+  },
+  "msg_liked_cleared": {
+    "message": "Вподобані аддони очищено!"
+  },
+  "msg_error_clearing": {
+    "message": "Помилка очищення"
+  },
+  "msg_fetching_list": {
+    "message": "Отримання списку колекцій..."
+  },
+  "msg_no_collections": {
+    "message": "Колекцій для синхронізації не знайдено."
+  },
+  "msg_sync_complete": {
+    "message": "Синхронізацію завершено!"
+  },
+  "msg_sync_failed": {
+    "message": "Не вдалося отримати колекції"
+  },
+  "content_add_to_collection": {
+    "message": "Додати до колекції"
+  },
+  "content_loading_collections": {
+    "message": "Завантаження колекцій..."
+  },
+  "content_no_collections_found": {
+    "message": "Для цієї гри колекцій не знайдено."
+  },
+  "content_no_collections_link_1": {
+    "message": "Схоже, у вас немає колекцій для "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Натисніть "
+  },
+  "content_no_collections_link_3": {
+    "message": "тут"
+  },
+  "content_no_collections_link_4": {
+    "message": ", щоб створити."
+  },
+  "content_items": {
+    "message": "предметів"
+  },
+  "content_add": {
+    "message": "Додати"
+  },
+  "content_added": {
+    "message": "Додано"
+  },
+  "content_error": {
+    "message": "Помилка"
+  },
+  "content_adding": {
+    "message": "Додавання"
+  },
+  "content_added_all": {
+    "message": "Всі додані!"
+  },
+  "content_req_items_title": {
+    "message": "Додати також необхідні предмети?"
+  },
+  "content_skip": {
+    "message": "Пропустити"
+  },
+  "content_add_selected": {
+    "message": "Додати вибрані"
+  },
+  "content_calc_size": {
+    "message": "Обчислити розмір"
+  },
+  "content_like_all": {
+    "message": "Вподобати всі"
+  },
+  "content_all_liked": {
+    "message": "Всі вподобані"
+  },
+  "content_liked": {
+    "message": "Вподобано"
+  },
+  "content_create_new": {
+    "message": "Створити нову колекцію"
+  },
+  "content_login_required_like": {
+    "message": "Щоб вподобати предмети, потрібно ввійти в систему."
+  },
+  "content_many_private": {
+    "message": "Багато предметів приховані, або у вас немає цієї гри!"
+  },
+  "content_in_collections": {
+    "message": "В колекціях:"
+  }
+}

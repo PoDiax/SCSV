@@ -4,9 +4,10 @@ import packageJson from "./package.json" with { type: 'json' }
 const { version, name, description } = packageJson
 
 export default {
-  name: "Steam Collection Size Viewer",
+  name: "__MSG_extensionName__",
   short_name: "SCSV",
-  description,
+  description: "__MSG_extensionDescription__",
+  default_locale: "en",
   version,
   manifest_version: 3,
   author: { "email": "pd@pdx.ovh" },
@@ -44,9 +45,13 @@ export default {
       js: ["src/content-script/WorkshopHighlighter.ts"],
       matches: [
         "https://steamcommunity.com/workshop/browse/*",
+        "https://steamcommunity.com/workshop/browse*",
         "https://steamcommunity.com/app/*/workshop/*",
+        "https://steamcommunity.com/app/*/workshop*",
         "https://steamcommunity.com/id/*/myworkshopfiles/*",
-        "https://steamcommunity.com/profiles/*/myworkshopfiles/*"
+        "https://steamcommunity.com/id/*/myworkshopfiles*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles/*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles*"
       ],
     }
   ],

@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Browser-Erweiterung zur Anzeige der Größe von Steam Workshop-Kollektionen mit einem Klick"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Kollektions-Cache synchronisieren"
+  },
+  "popup_syncing": {
+    "message": "Synchronisiere..."
+  },
+  "popup_clear_btn": {
+    "message": "Gelikete Addons löschen"
+  },
+  "popup_clearing": {
+    "message": "Lösche..."
+  },
+  "popup_cache_items": {
+    "message": "Gecachte Elemente:"
+  },
+  "popup_view_cache": {
+    "message": "Cache-Daten anzeigen"
+  },
+  "popup_hide_cache": {
+    "message": "Cache-Daten ausblenden"
+  },
+  "popup_sync_progress": {
+    "message": "Bitte geöffnet lassen."
+  },
+  "popup_collections_text": {
+    "message": "Kollektionen"
+  },
+  "msg_not_logged_in": {
+    "message": "Nicht bei Steam angemeldet."
+  },
+  "msg_unit_changed": {
+    "message": "Einheit geändert zu"
+  },
+  "msg_error_saving": {
+    "message": "Fehler beim Speichern der Einstellungen"
+  },
+  "msg_liked_cleared": {
+    "message": "Gelikete Addons für den aktuellen Benutzer gelöscht!"
+  },
+  "msg_error_clearing": {
+    "message": "Fehler beim Löschen"
+  },
+  "msg_fetching_list": {
+    "message": "Rufe Kollektionsliste ab..."
+  },
+  "msg_no_collections": {
+    "message": "Keine Kollektionen zum Synchronisieren gefunden."
+  },
+  "msg_sync_complete": {
+    "message": "Synchronisation abgeschlossen!"
+  },
+  "msg_sync_failed": {
+    "message": "Fehler beim Abrufen der Kollektionen"
+  },
+  "content_add_to_collection": {
+    "message": "Zur Kollektion hinzufügen"
+  },
+  "content_loading_collections": {
+    "message": "Lade Kollektionen..."
+  },
+  "content_no_collections_found": {
+    "message": "Keine Kollektionen für dieses Spiel gefunden."
+  },
+  "content_no_collections_link_1": {
+    "message": "Es sieht so aus, als hättest du keine Kollektionen für "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Klicke "
+  },
+  "content_no_collections_link_3": {
+    "message": "hier"
+  },
+  "content_no_collections_link_4": {
+    "message": " um eine zu erstellen."
+  },
+  "content_items": {
+    "message": "Objekte"
+  },
+  "content_add": {
+    "message": "Hinzufügen"
+  },
+  "content_added": {
+    "message": "Hinzugefügt"
+  },
+  "content_error": {
+    "message": "Fehler"
+  },
+  "content_adding": {
+    "message": "Füge hinzu"
+  },
+  "content_added_all": {
+    "message": "Alle hinzugefügt!"
+  },
+  "content_req_items_title": {
+    "message": "Auch benötigte Objekte hinzufügen?"
+  },
+  "content_skip": {
+    "message": "Überspringen"
+  },
+  "content_add_selected": {
+    "message": "Ausgewählte hinzufügen"
+  },
+  "content_calc_size": {
+    "message": "Größe berechnen"
+  },
+  "content_like_all": {
+    "message": "Alle liken"
+  },
+  "content_all_liked": {
+    "message": "Alle geliked"
+  },
+  "content_liked": {
+    "message": "Geliked"
+  },
+  "content_create_new": {
+    "message": "Neue Kollektion erstellen"
+  },
+  "content_login_required_like": {
+    "message": "Du musst angemeldet sein, um Objekte zu liken."
+  },
+  "content_many_private": {
+    "message": "Viele Objekte sind privat/versteckt oder du besitzt das Spiel nicht!"
+  },
+  "content_in_collections": {
+    "message": "In Kollektionen:"
+  }
+}

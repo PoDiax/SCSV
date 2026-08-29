@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Ekstensi browser untuk melihat ukuran koleksi Steam Workshop dengan satu klik"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Sinkronkan Cache Koleksi"
+  },
+  "popup_syncing": {
+    "message": "Menyinkronkan..."
+  },
+  "popup_clear_btn": {
+    "message": "Hapus Addon yang Disukai"
+  },
+  "popup_clearing": {
+    "message": "Menghapus..."
+  },
+  "popup_cache_items": {
+    "message": "Item yang di-cache:"
+  },
+  "popup_view_cache": {
+    "message": "Lihat Data Cache"
+  },
+  "popup_hide_cache": {
+    "message": "Sembunyikan Data Cache"
+  },
+  "popup_sync_progress": {
+    "message": "Tolong biarkan terbuka."
+  },
+  "popup_collections_text": {
+    "message": "Koleksi"
+  },
+  "msg_not_logged_in": {
+    "message": "Belum login ke Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unit diubah menjadi"
+  },
+  "msg_error_saving": {
+    "message": "Kesalahan menyimpan pengaturan"
+  },
+  "msg_liked_cleared": {
+    "message": "Addon yang disukai telah dihapus!"
+  },
+  "msg_error_clearing": {
+    "message": "Kesalahan saat menghapus addon"
+  },
+  "msg_fetching_list": {
+    "message": "Mengambil daftar koleksi..."
+  },
+  "msg_no_collections": {
+    "message": "Tidak ada koleksi untuk disinkronkan."
+  },
+  "msg_sync_complete": {
+    "message": "Sinkronisasi selesai!"
+  },
+  "msg_sync_failed": {
+    "message": "Gagal mengambil koleksi"
+  },
+  "content_add_to_collection": {
+    "message": "Tambahkan ke Koleksi"
+  },
+  "content_loading_collections": {
+    "message": "Memuat Koleksi..."
+  },
+  "content_no_collections_found": {
+    "message": "Tidak ada koleksi untuk game ini."
+  },
+  "content_no_collections_link_1": {
+    "message": "Sepertinya Anda tidak memiliki koleksi untuk "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Klik "
+  },
+  "content_no_collections_link_3": {
+    "message": "di sini"
+  },
+  "content_no_collections_link_4": {
+    "message": " untuk membuat."
+  },
+  "content_items": {
+    "message": "item"
+  },
+  "content_add": {
+    "message": "Tambah"
+  },
+  "content_added": {
+    "message": "Ditambahkan"
+  },
+  "content_error": {
+    "message": "Kesalahan"
+  },
+  "content_adding": {
+    "message": "Menambahkan"
+  },
+  "content_added_all": {
+    "message": "Semua Ditambahkan!"
+  },
+  "content_req_items_title": {
+    "message": "Tambahkan item yang dibutuhkan juga?"
+  },
+  "content_skip": {
+    "message": "Lewati"
+  },
+  "content_add_selected": {
+    "message": "Tambah yang Dipilih"
+  },
+  "content_calc_size": {
+    "message": "Hitung Ukuran"
+  },
+  "content_like_all": {
+    "message": "Sukai Semua"
+  },
+  "content_all_liked": {
+    "message": "Semua Disukai"
+  },
+  "content_liked": {
+    "message": "Disukai"
+  },
+  "content_create_new": {
+    "message": "Buat koleksi baru"
+  },
+  "content_login_required_like": {
+    "message": "Anda harus login untuk menyukai item."
+  },
+  "content_many_private": {
+    "message": "Banyak item bersifat pribadi atau Anda tidak memiliki gamenya!"
+  },
+  "content_in_collections": {
+    "message": "Dalam Koleksi:"
+  }
+}

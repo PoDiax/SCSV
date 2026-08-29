@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Browser extension to view the size of Steam Workshop collections with a single click"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Sync Collections Cache"
+  },
+  "popup_syncing": {
+    "message": "Syncing..."
+  },
+  "popup_clear_btn": {
+    "message": "Clear Liked Addons"
+  },
+  "popup_clearing": {
+    "message": "Clearing..."
+  },
+  "popup_cache_items": {
+    "message": "Cached Items:"
+  },
+  "popup_view_cache": {
+    "message": "View Cache Data"
+  },
+  "popup_hide_cache": {
+    "message": "Hide Cache Data"
+  },
+  "popup_sync_progress": {
+    "message": "Please keep open."
+  },
+  "popup_collections_text": {
+    "message": "Collections"
+  },
+  "msg_not_logged_in": {
+    "message": "Not logged into Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unit changed to"
+  },
+  "msg_error_saving": {
+    "message": "Error saving settings"
+  },
+  "msg_liked_cleared": {
+    "message": "Liked addons cleared for current user!"
+  },
+  "msg_error_clearing": {
+    "message": "Error clearing addons"
+  },
+  "msg_fetching_list": {
+    "message": "Fetching collections list..."
+  },
+  "msg_no_collections": {
+    "message": "No collections found to sync."
+  },
+  "msg_sync_complete": {
+    "message": "Sync complete!"
+  },
+  "msg_sync_failed": {
+    "message": "Failed to fetch collections"
+  },
+  "content_add_to_collection": {
+    "message": "Add to Collection"
+  },
+  "content_loading_collections": {
+    "message": "Loading Collections..."
+  },
+  "content_no_collections_found": {
+    "message": "No collections found for this game."
+  },
+  "content_no_collections_link_1": {
+    "message": "It doesn't look like you have any collections for "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Click "
+  },
+  "content_no_collections_link_3": {
+    "message": "here"
+  },
+  "content_no_collections_link_4": {
+    "message": " to create one."
+  },
+  "content_items": {
+    "message": "items"
+  },
+  "content_add": {
+    "message": "Add"
+  },
+  "content_added": {
+    "message": "Added"
+  },
+  "content_error": {
+    "message": "Error"
+  },
+  "content_adding": {
+    "message": "Adding"
+  },
+  "content_added_all": {
+    "message": "Added All!"
+  },
+  "content_req_items_title": {
+    "message": "Also add required items?"
+  },
+  "content_skip": {
+    "message": "Skip"
+  },
+  "content_add_selected": {
+    "message": "Add Selected"
+  },
+  "content_calc_size": {
+    "message": "Calculate Size"
+  },
+  "content_like_all": {
+    "message": "Like All"
+  },
+  "content_all_liked": {
+    "message": "All Liked"
+  },
+  "content_liked": {
+    "message": "Liked"
+  },
+  "content_create_new": {
+    "message": "Create new collection"
+  },
+  "content_login_required_like": {
+    "message": "You need to be logged in to like items."
+  },
+  "content_many_private": {
+    "message": "Many items are private/hidden or you do not own the game!"
+  },
+  "content_in_collections": {
+    "message": "In Collections:"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Extensión del navegador para ver el tamaño de las colecciones de Steam Workshop con un solo clic"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Sincronizar caché de colecciones"
+  },
+  "popup_syncing": {
+    "message": "Sincronizando..."
+  },
+  "popup_clear_btn": {
+    "message": "Borrar addons que te gustan"
+  },
+  "popup_clearing": {
+    "message": "Borrando..."
+  },
+  "popup_cache_items": {
+    "message": "Elementos en caché:"
+  },
+  "popup_view_cache": {
+    "message": "Ver datos de caché"
+  },
+  "popup_hide_cache": {
+    "message": "Ocultar datos de caché"
+  },
+  "popup_sync_progress": {
+    "message": "Por favor, mantén abierto."
+  },
+  "popup_collections_text": {
+    "message": "Colecciones"
+  },
+  "msg_not_logged_in": {
+    "message": "No has iniciado sesión en Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unidad cambiada a"
+  },
+  "msg_error_saving": {
+    "message": "Error al guardar la configuración"
+  },
+  "msg_liked_cleared": {
+    "message": "¡Addons que te gustan borrados para el usuario actual!"
+  },
+  "msg_error_clearing": {
+    "message": "Error al borrar addons"
+  },
+  "msg_fetching_list": {
+    "message": "Obteniendo lista de colecciones..."
+  },
+  "msg_no_collections": {
+    "message": "No se encontraron colecciones para sincronizar."
+  },
+  "msg_sync_complete": {
+    "message": "¡Sincronización completada!"
+  },
+  "msg_sync_failed": {
+    "message": "Error al obtener colecciones"
+  },
+  "content_add_to_collection": {
+    "message": "Añadir a la colección"
+  },
+  "content_loading_collections": {
+    "message": "Cargando colecciones..."
+  },
+  "content_no_collections_found": {
+    "message": "No se encontraron colecciones para este juego."
+  },
+  "content_no_collections_link_1": {
+    "message": "Parece que no tienes ninguna colección para "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Haz clic "
+  },
+  "content_no_collections_link_3": {
+    "message": "aquí"
+  },
+  "content_no_collections_link_4": {
+    "message": " para crear una."
+  },
+  "content_items": {
+    "message": "artículos"
+  },
+  "content_add": {
+    "message": "Añadir"
+  },
+  "content_added": {
+    "message": "Añadido"
+  },
+  "content_error": {
+    "message": "Error"
+  },
+  "content_adding": {
+    "message": "Añadiendo"
+  },
+  "content_added_all": {
+    "message": "¡Añadidos todos!"
+  },
+  "content_req_items_title": {
+    "message": "¿Añadir también los artículos requeridos?"
+  },
+  "content_skip": {
+    "message": "Omitir"
+  },
+  "content_add_selected": {
+    "message": "Añadir seleccionados"
+  },
+  "content_calc_size": {
+    "message": "Calcular tamaño"
+  },
+  "content_like_all": {
+    "message": "Dar me gusta a todos"
+  },
+  "content_all_liked": {
+    "message": "A todos les gusta"
+  },
+  "content_liked": {
+    "message": "Me gusta"
+  },
+  "content_create_new": {
+    "message": "Crear nueva colección"
+  },
+  "content_login_required_like": {
+    "message": "Debes iniciar sesión para dar me gusta."
+  },
+  "content_many_private": {
+    "message": "¡Muchos artículos son privados o no tienes el juego!"
+  },
+  "content_in_collections": {
+    "message": "En Colecciones:"
+  }
+}

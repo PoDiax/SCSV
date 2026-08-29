@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Extensie de browser pentru a vizualiza dimensiunea colecțiilor Steam Workshop cu un singur clic"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Sincronizare Cache Colecții"
+  },
+  "popup_syncing": {
+    "message": "Se sincronizează..."
+  },
+  "popup_clear_btn": {
+    "message": "Șterge Addon-uri Apreciate"
+  },
+  "popup_clearing": {
+    "message": "Se șterge..."
+  },
+  "popup_cache_items": {
+    "message": "Elemente în cache:"
+  },
+  "popup_view_cache": {
+    "message": "Vezi date cache"
+  },
+  "popup_hide_cache": {
+    "message": "Ascunde date cache"
+  },
+  "popup_sync_progress": {
+    "message": "Te rugăm să menții deschis."
+  },
+  "popup_collections_text": {
+    "message": "Colecții"
+  },
+  "msg_not_logged_in": {
+    "message": "Nu ești conectat la Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unitate schimbată la"
+  },
+  "msg_error_saving": {
+    "message": "Eroare la salvarea setărilor"
+  },
+  "msg_liked_cleared": {
+    "message": "Addon-urile apreciate au fost șterse pentru utilizatorul curent!"
+  },
+  "msg_error_clearing": {
+    "message": "Eroare la ștergere"
+  },
+  "msg_fetching_list": {
+    "message": "Se obține lista de colecții..."
+  },
+  "msg_no_collections": {
+    "message": "Nicio colecție de sincronizat."
+  },
+  "msg_sync_complete": {
+    "message": "Sincronizare completă!"
+  },
+  "msg_sync_failed": {
+    "message": "Obținerea colecțiilor a eșuat"
+  },
+  "content_add_to_collection": {
+    "message": "Adaugă la colecție"
+  },
+  "content_loading_collections": {
+    "message": "Se încarcă colecțiile..."
+  },
+  "content_no_collections_found": {
+    "message": "Nu s-a găsit nicio colecție pentru acest joc."
+  },
+  "content_no_collections_link_1": {
+    "message": "Se pare că nu ai nicio colecție pentru "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Fă clic "
+  },
+  "content_no_collections_link_3": {
+    "message": "aici"
+  },
+  "content_no_collections_link_4": {
+    "message": " pentru a crea una."
+  },
+  "content_items": {
+    "message": "elemente"
+  },
+  "content_add": {
+    "message": "Adaugă"
+  },
+  "content_added": {
+    "message": "Adăugat"
+  },
+  "content_error": {
+    "message": "Eroare"
+  },
+  "content_adding": {
+    "message": "Se adaugă"
+  },
+  "content_added_all": {
+    "message": "Toate Adăugate!"
+  },
+  "content_req_items_title": {
+    "message": "Adaugi și elementele necesare?"
+  },
+  "content_skip": {
+    "message": "Omite"
+  },
+  "content_add_selected": {
+    "message": "Adaugă Selecția"
+  },
+  "content_calc_size": {
+    "message": "Calculează Dimensiunea"
+  },
+  "content_like_all": {
+    "message": "Apreciază Tot"
+  },
+  "content_all_liked": {
+    "message": "Toate Apreciate"
+  },
+  "content_liked": {
+    "message": "Apreciat"
+  },
+  "content_create_new": {
+    "message": "Creează colecție nouă"
+  },
+  "content_login_required_like": {
+    "message": "Trebuie să fii conectat pentru a aprecia elementele."
+  },
+  "content_many_private": {
+    "message": "Multe elemente sunt private sau nu deții jocul!"
+  },
+  "content_in_collections": {
+    "message": "În Colecții:"
+  }
+}

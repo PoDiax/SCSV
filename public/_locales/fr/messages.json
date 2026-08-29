@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Extension de navigateur pour voir la taille des collections du Workshop Steam en un seul clic"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Synchroniser le cache des collections"
+  },
+  "popup_syncing": {
+    "message": "Synchronisation..."
+  },
+  "popup_clear_btn": {
+    "message": "Effacer les addons aimés"
+  },
+  "popup_clearing": {
+    "message": "Effacement..."
+  },
+  "popup_cache_items": {
+    "message": "Éléments en cache :"
+  },
+  "popup_view_cache": {
+    "message": "Afficher les données du cache"
+  },
+  "popup_hide_cache": {
+    "message": "Masquer les données du cache"
+  },
+  "popup_sync_progress": {
+    "message": "Veuillez garder ouvert."
+  },
+  "popup_collections_text": {
+    "message": "Collections"
+  },
+  "msg_not_logged_in": {
+    "message": "Non connecté à Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unité changée en"
+  },
+  "msg_error_saving": {
+    "message": "Erreur lors de l'enregistrement des paramètres"
+  },
+  "msg_liked_cleared": {
+    "message": "Addons aimés effacés pour l'utilisateur actuel !"
+  },
+  "msg_error_clearing": {
+    "message": "Erreur lors de l'effacement"
+  },
+  "msg_fetching_list": {
+    "message": "Récupération de la liste des collections..."
+  },
+  "msg_no_collections": {
+    "message": "Aucune collection trouvée à synchroniser."
+  },
+  "msg_sync_complete": {
+    "message": "Synchronisation terminée !"
+  },
+  "msg_sync_failed": {
+    "message": "Échec de la récupération des collections"
+  },
+  "content_add_to_collection": {
+    "message": "Ajouter à la collection"
+  },
+  "content_loading_collections": {
+    "message": "Chargement des collections..."
+  },
+  "content_no_collections_found": {
+    "message": "Aucune collection trouvée pour ce jeu."
+  },
+  "content_no_collections_link_1": {
+    "message": "Il semble que vous n'ayez aucune collection pour "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Cliquez "
+  },
+  "content_no_collections_link_3": {
+    "message": "ici"
+  },
+  "content_no_collections_link_4": {
+    "message": " pour en créer une."
+  },
+  "content_items": {
+    "message": "articles"
+  },
+  "content_add": {
+    "message": "Ajouter"
+  },
+  "content_added": {
+    "message": "Ajouté"
+  },
+  "content_error": {
+    "message": "Erreur"
+  },
+  "content_adding": {
+    "message": "Ajout en cours"
+  },
+  "content_added_all": {
+    "message": "Tout ajouté !"
+  },
+  "content_req_items_title": {
+    "message": "Ajouter également les éléments requis ?"
+  },
+  "content_skip": {
+    "message": "Ignorer"
+  },
+  "content_add_selected": {
+    "message": "Ajouter la sélection"
+  },
+  "content_calc_size": {
+    "message": "Calculer la taille"
+  },
+  "content_like_all": {
+    "message": "Tout aimer"
+  },
+  "content_all_liked": {
+    "message": "Tout aimé"
+  },
+  "content_liked": {
+    "message": "Aimé"
+  },
+  "content_create_new": {
+    "message": "Créer une nouvelle collection"
+  },
+  "content_login_required_like": {
+    "message": "Vous devez être connecté pour aimer les articles."
+  },
+  "content_many_private": {
+    "message": "De nombreux articles sont privés ou vous ne possédez pas le jeu !"
+  },
+  "content_in_collections": {
+    "message": "Dans les collections :"
+  }
+}

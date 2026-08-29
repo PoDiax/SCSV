@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Nettleserutvidelse for å se størrelsen på Steam Workshop-samlinger med ett klikk"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Synkroniser samlingsbuffer"
+  },
+  "popup_syncing": {
+    "message": "Synkroniserer..."
+  },
+  "popup_clear_btn": {
+    "message": "Tøm likte tillegg"
+  },
+  "popup_clearing": {
+    "message": "Tømmer..."
+  },
+  "popup_cache_items": {
+    "message": "Bufrede elementer:"
+  },
+  "popup_view_cache": {
+    "message": "Vis bufferdata"
+  },
+  "popup_hide_cache": {
+    "message": "Skjul bufferdata"
+  },
+  "popup_sync_progress": {
+    "message": "Vennligst hold åpen."
+  },
+  "popup_collections_text": {
+    "message": "Samlinger"
+  },
+  "msg_not_logged_in": {
+    "message": "Ikke logget inn på Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Enhet endret til"
+  },
+  "msg_error_saving": {
+    "message": "Feil ved lagring av innstillinger"
+  },
+  "msg_liked_cleared": {
+    "message": "Likte tillegg tømt for nåværende bruker!"
+  },
+  "msg_error_clearing": {
+    "message": "Feil ved tømming"
+  },
+  "msg_fetching_list": {
+    "message": "Henter samlingsliste..."
+  },
+  "msg_no_collections": {
+    "message": "Ingen samlinger funnet for å synkronisere."
+  },
+  "msg_sync_complete": {
+    "message": "Synkronisering fullført!"
+  },
+  "msg_sync_failed": {
+    "message": "Kunne ikke hente samlinger"
+  },
+  "content_add_to_collection": {
+    "message": "Legg til i samling"
+  },
+  "content_loading_collections": {
+    "message": "Laster samlinger..."
+  },
+  "content_no_collections_found": {
+    "message": "Ingen samlinger funnet for dette spillet."
+  },
+  "content_no_collections_link_1": {
+    "message": "Det ser ikke ut som du har noen samlinger for "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Klikk "
+  },
+  "content_no_collections_link_3": {
+    "message": "her"
+  },
+  "content_no_collections_link_4": {
+    "message": " for å opprette en."
+  },
+  "content_items": {
+    "message": "elementer"
+  },
+  "content_add": {
+    "message": "Legg til"
+  },
+  "content_added": {
+    "message": "Lagt til"
+  },
+  "content_error": {
+    "message": "Feil"
+  },
+  "content_adding": {
+    "message": "Legger til"
+  },
+  "content_added_all": {
+    "message": "Alle lagt til!"
+  },
+  "content_req_items_title": {
+    "message": "Legg til nødvendige elementer også?"
+  },
+  "content_skip": {
+    "message": "Hopp over"
+  },
+  "content_add_selected": {
+    "message": "Legg til valgte"
+  },
+  "content_calc_size": {
+    "message": "Beregn størrelse"
+  },
+  "content_like_all": {
+    "message": "Lik alle"
+  },
+  "content_all_liked": {
+    "message": "Alle likt"
+  },
+  "content_liked": {
+    "message": "Likt"
+  },
+  "content_create_new": {
+    "message": "Opprett ny samling"
+  },
+  "content_login_required_like": {
+    "message": "Du må være logget inn for å like elementer."
+  },
+  "content_many_private": {
+    "message": "Mange elementer er private eller du eier ikke spillet!"
+  },
+  "content_in_collections": {
+    "message": "I Samlinger:"
+  }
+}

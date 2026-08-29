@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Tiện ích mở rộng trình duyệt để xem kích thước của các bộ sưu tập Steam Workshop chỉ với một cú nhấp chuột"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Đồng bộ hóa Cache"
+  },
+  "popup_syncing": {
+    "message": "Đang đồng bộ..."
+  },
+  "popup_clear_btn": {
+    "message": "Xóa các Addon đã thích"
+  },
+  "popup_clearing": {
+    "message": "Đang xóa..."
+  },
+  "popup_cache_items": {
+    "message": "Mục trong bộ nhớ cache:"
+  },
+  "popup_view_cache": {
+    "message": "Xem Dữ Liệu Cache"
+  },
+  "popup_hide_cache": {
+    "message": "Ẩn Dữ Liệu Cache"
+  },
+  "popup_sync_progress": {
+    "message": "Vui lòng giữ mở."
+  },
+  "popup_collections_text": {
+    "message": "Bộ Sưu Tập"
+  },
+  "msg_not_logged_in": {
+    "message": "Chưa đăng nhập Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Đơn vị được đổi thành"
+  },
+  "msg_error_saving": {
+    "message": "Lỗi lưu cài đặt"
+  },
+  "msg_liked_cleared": {
+    "message": "Đã xóa addon yêu thích cho người dùng hiện tại!"
+  },
+  "msg_error_clearing": {
+    "message": "Lỗi xóa addon"
+  },
+  "msg_fetching_list": {
+    "message": "Đang lấy danh sách bộ sưu tập..."
+  },
+  "msg_no_collections": {
+    "message": "Không tìm thấy bộ sưu tập nào để đồng bộ."
+  },
+  "msg_sync_complete": {
+    "message": "Hoàn thành đồng bộ!"
+  },
+  "msg_sync_failed": {
+    "message": "Không thể lấy bộ sưu tập"
+  },
+  "content_add_to_collection": {
+    "message": "Thêm vào bộ sưu tập"
+  },
+  "content_loading_collections": {
+    "message": "Đang Tải Bộ Sưu Tập..."
+  },
+  "content_no_collections_found": {
+    "message": "Không tìm thấy bộ sưu tập cho trò chơi này."
+  },
+  "content_no_collections_link_1": {
+    "message": "Có vẻ như bạn không có bất kỳ bộ sưu tập nào cho "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Nhấp "
+  },
+  "content_no_collections_link_3": {
+    "message": "vào đây"
+  },
+  "content_no_collections_link_4": {
+    "message": " để tạo một cái."
+  },
+  "content_items": {
+    "message": "mục"
+  },
+  "content_add": {
+    "message": "Thêm"
+  },
+  "content_added": {
+    "message": "Đã thêm"
+  },
+  "content_error": {
+    "message": "Lỗi"
+  },
+  "content_adding": {
+    "message": "Đang thêm"
+  },
+  "content_added_all": {
+    "message": "Đã thêm tất cả!"
+  },
+  "content_req_items_title": {
+    "message": "Thêm các mục bắt buộc luôn không?"
+  },
+  "content_skip": {
+    "message": "Bỏ qua"
+  },
+  "content_add_selected": {
+    "message": "Thêm Mục Đã Chọn"
+  },
+  "content_calc_size": {
+    "message": "Tính Toán Kích Thước"
+  },
+  "content_like_all": {
+    "message": "Thích tất cả"
+  },
+  "content_all_liked": {
+    "message": "Đã Thích Tất Cả"
+  },
+  "content_liked": {
+    "message": "Đã thích"
+  },
+  "content_create_new": {
+    "message": "Tạo bộ sưu tập mới"
+  },
+  "content_login_required_like": {
+    "message": "Bạn cần đăng nhập để thích."
+  },
+  "content_many_private": {
+    "message": "Nhiều mục riêng tư hoặc bạn không sở hữu trò chơi!"
+  },
+  "content_in_collections": {
+    "message": "Trong Bộ Sưu Tập:"
+  }
+}

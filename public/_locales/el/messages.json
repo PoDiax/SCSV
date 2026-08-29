@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Επέκταση προγράμματος περιήγησης για την προβολή του μεγέθους των συλλογών του Steam Workshop με ένα μόνο κλικ"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Συγχρονισμός Προσωρινής Μνήμης"
+  },
+  "popup_syncing": {
+    "message": "Συγχρονισμός..."
+  },
+  "popup_clear_btn": {
+    "message": "Εκκαθάριση Αγαπημένων"
+  },
+  "popup_clearing": {
+    "message": "Εκκαθάριση..."
+  },
+  "popup_cache_items": {
+    "message": "Στοιχεία στην κρυφή μνήμη:"
+  },
+  "popup_view_cache": {
+    "message": "Προβολή δεδομένων"
+  },
+  "popup_hide_cache": {
+    "message": "Απόκρυψη δεδομένων"
+  },
+  "popup_sync_progress": {
+    "message": "Παρακαλώ κρατήστε ανοιχτό."
+  },
+  "popup_collections_text": {
+    "message": "Συλλογές"
+  },
+  "msg_not_logged_in": {
+    "message": "Δεν έχετε συνδεθεί στο Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Η μονάδα άλλαξε σε"
+  },
+  "msg_error_saving": {
+    "message": "Σφάλμα αποθήκευσης"
+  },
+  "msg_liked_cleared": {
+    "message": "Τα αγαπημένα πρόσθετα διαγράφηκαν!"
+  },
+  "msg_error_clearing": {
+    "message": "Σφάλμα εκκαθάρισης"
+  },
+  "msg_fetching_list": {
+    "message": "Λήψη λίστας συλλογών..."
+  },
+  "msg_no_collections": {
+    "message": "Δεν βρέθηκαν συλλογές για συγχρονισμό."
+  },
+  "msg_sync_complete": {
+    "message": "Ο συγχρονισμός ολοκληρώθηκε!"
+  },
+  "msg_sync_failed": {
+    "message": "Αποτυχία λήψης συλλογών"
+  },
+  "content_add_to_collection": {
+    "message": "Προσθήκη στη συλλογή"
+  },
+  "content_loading_collections": {
+    "message": "Φόρτωση Συλλογών..."
+  },
+  "content_no_collections_found": {
+    "message": "Δεν βρέθηκαν συλλογές για αυτό το παιχνίδι."
+  },
+  "content_no_collections_link_1": {
+    "message": "Φαίνεται ότι δεν έχετε συλλογές για "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Κάντε κλικ "
+  },
+  "content_no_collections_link_3": {
+    "message": "εδώ"
+  },
+  "content_no_collections_link_4": {
+    "message": " για να δημιουργήσετε."
+  },
+  "content_items": {
+    "message": "αντικείμενα"
+  },
+  "content_add": {
+    "message": "Προσθήκη"
+  },
+  "content_added": {
+    "message": "Προστέθηκε"
+  },
+  "content_error": {
+    "message": "Σφάλμα"
+  },
+  "content_adding": {
+    "message": "Προσθήκη"
+  },
+  "content_added_all": {
+    "message": "Όλα προστέθηκαν!"
+  },
+  "content_req_items_title": {
+    "message": "Προσθήκη απαιτούμενων αντικειμένων;"
+  },
+  "content_skip": {
+    "message": "Παράλειψη"
+  },
+  "content_add_selected": {
+    "message": "Προσθήκη επιλεγμένων"
+  },
+  "content_calc_size": {
+    "message": "Υπολογισμός μεγέθους"
+  },
+  "content_like_all": {
+    "message": "Μου αρέσουν όλα"
+  },
+  "content_all_liked": {
+    "message": "Μου αρέσουν όλα"
+  },
+  "content_liked": {
+    "message": "Μου αρέσει"
+  },
+  "content_create_new": {
+    "message": "Δημιουργία νέας συλλογής"
+  },
+  "content_login_required_like": {
+    "message": "Πρέπει να συνδεθείτε για να σας αρέσουν τα αντικείμενα."
+  },
+  "content_many_private": {
+    "message": "Πολλά αντικείμενα είναι ιδιωτικά ή δεν σας ανήκει το παιχνίδι!"
+  },
+  "content_in_collections": {
+    "message": "Στις Συλλογές:"
+  }
+}

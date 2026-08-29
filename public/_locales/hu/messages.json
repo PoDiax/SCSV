@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Böngészőbővítmény a Steam Műhely gyűjtemények méretének egyetlen kattintással történő megtekintéséhez"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Műhely"
+  },
+  "popup_sync_btn": {
+    "message": "Gyűjtemények gyorsítótárának szinkronizálása"
+  },
+  "popup_syncing": {
+    "message": "Szinkronizálás..."
+  },
+  "popup_clear_btn": {
+    "message": "Kedvelt kiegészítők törlése"
+  },
+  "popup_clearing": {
+    "message": "Törlés..."
+  },
+  "popup_cache_items": {
+    "message": "Gyorsítótárazott elemek:"
+  },
+  "popup_view_cache": {
+    "message": "Gyorsítótár adatainak megtekintése"
+  },
+  "popup_hide_cache": {
+    "message": "Gyorsítótár adatainak elrejtése"
+  },
+  "popup_sync_progress": {
+    "message": "Kérjük, tartsa nyitva."
+  },
+  "popup_collections_text": {
+    "message": "Gyűjtemények"
+  },
+  "msg_not_logged_in": {
+    "message": "Nincs bejelentkezve a Steambe."
+  },
+  "msg_unit_changed": {
+    "message": "Mértékegység megváltoztatva:"
+  },
+  "msg_error_saving": {
+    "message": "Hiba a beállítások mentésekor"
+  },
+  "msg_liked_cleared": {
+    "message": "Kedvelt kiegészítők törölve a jelenlegi felhasználónál!"
+  },
+  "msg_error_clearing": {
+    "message": "Hiba a kiegészítők törlésekor"
+  },
+  "msg_fetching_list": {
+    "message": "Gyűjtemények listájának lekérése..."
+  },
+  "msg_no_collections": {
+    "message": "Nem található szinkronizálandó gyűjtemény."
+  },
+  "msg_sync_complete": {
+    "message": "Szinkronizálás befejezve!"
+  },
+  "msg_sync_failed": {
+    "message": "A gyűjtemények lekérése sikertelen"
+  },
+  "content_add_to_collection": {
+    "message": "Hozzáadás a gyűjteményhez"
+  },
+  "content_loading_collections": {
+    "message": "Gyűjtemények betöltése..."
+  },
+  "content_no_collections_found": {
+    "message": "Nem található gyűjtemény ehhez a játékhoz."
+  },
+  "content_no_collections_link_1": {
+    "message": "Úgy tűnik, nincs gyűjteménye ehhez: "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Kattintson "
+  },
+  "content_no_collections_link_3": {
+    "message": "ide"
+  },
+  "content_no_collections_link_4": {
+    "message": " egy létrehozásához."
+  },
+  "content_items": {
+    "message": "elem"
+  },
+  "content_add": {
+    "message": "Hozzáadás"
+  },
+  "content_added": {
+    "message": "Hozzáadva"
+  },
+  "content_error": {
+    "message": "Hiba"
+  },
+  "content_adding": {
+    "message": "Hozzáadás..."
+  },
+  "content_added_all": {
+    "message": "Összes hozzáadva!"
+  },
+  "content_req_items_title": {
+    "message": "A szükséges elemeket is hozzáadja?"
+  },
+  "content_skip": {
+    "message": "Kihagyás"
+  },
+  "content_add_selected": {
+    "message": "Kiválasztottak hozzáadása"
+  },
+  "content_calc_size": {
+    "message": "Méret kiszámítása"
+  },
+  "content_like_all": {
+    "message": "Mindet kedvelem"
+  },
+  "content_all_liked": {
+    "message": "Mind kedvelve"
+  },
+  "content_liked": {
+    "message": "Kedvelve"
+  },
+  "content_create_new": {
+    "message": "Új gyűjtemény létrehozása"
+  },
+  "content_login_required_like": {
+    "message": "Be kell jelentkeznie, hogy kedvelhesse az elemeket."
+  },
+  "content_many_private": {
+    "message": "Sok elem privát/rejtett, vagy nem rendelkezik a játékkal!"
+  },
+  "content_in_collections": {
+    "message": "Gyűjteményekben:"
+  }
+}

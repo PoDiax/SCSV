@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Estensione del browser per visualizzare le dimensioni delle collezioni del Workshop di Steam con un solo clic"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Workshop"
+  },
+  "popup_sync_btn": {
+    "message": "Sincronizza cache collezioni"
+  },
+  "popup_syncing": {
+    "message": "Sincronizzazione..."
+  },
+  "popup_clear_btn": {
+    "message": "Cancella add-on piaciuti"
+  },
+  "popup_clearing": {
+    "message": "Cancellazione..."
+  },
+  "popup_cache_items": {
+    "message": "Elementi nella cache:"
+  },
+  "popup_view_cache": {
+    "message": "Visualizza dati cache"
+  },
+  "popup_hide_cache": {
+    "message": "Nascondi dati cache"
+  },
+  "popup_sync_progress": {
+    "message": "Per favore, mantieni aperto."
+  },
+  "popup_collections_text": {
+    "message": "Collezioni"
+  },
+  "msg_not_logged_in": {
+    "message": "Non hai effettuato l'accesso a Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Unità cambiata in"
+  },
+  "msg_error_saving": {
+    "message": "Errore di salvataggio"
+  },
+  "msg_liked_cleared": {
+    "message": "Add-on piaciuti cancellati per l'utente corrente!"
+  },
+  "msg_error_clearing": {
+    "message": "Errore durante la cancellazione"
+  },
+  "msg_fetching_list": {
+    "message": "Recupero lista collezioni..."
+  },
+  "msg_no_collections": {
+    "message": "Nessuna collezione trovata da sincronizzare."
+  },
+  "msg_sync_complete": {
+    "message": "Sincronizzazione completata!"
+  },
+  "msg_sync_failed": {
+    "message": "Impossibile recuperare le collezioni"
+  },
+  "content_add_to_collection": {
+    "message": "Aggiungi alla collezione"
+  },
+  "content_loading_collections": {
+    "message": "Caricamento collezioni..."
+  },
+  "content_no_collections_found": {
+    "message": "Nessuna collezione trovata per questo gioco."
+  },
+  "content_no_collections_link_1": {
+    "message": "Sembra che tu non abbia collezioni per "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Clicca "
+  },
+  "content_no_collections_link_3": {
+    "message": "qui"
+  },
+  "content_no_collections_link_4": {
+    "message": " per crearne una."
+  },
+  "content_items": {
+    "message": "elementi"
+  },
+  "content_add": {
+    "message": "Aggiungi"
+  },
+  "content_added": {
+    "message": "Aggiunto"
+  },
+  "content_error": {
+    "message": "Errore"
+  },
+  "content_adding": {
+    "message": "Aggiungendo"
+  },
+  "content_added_all": {
+    "message": "Tutti aggiunti!"
+  },
+  "content_req_items_title": {
+    "message": "Aggiungere anche gli elementi richiesti?"
+  },
+  "content_skip": {
+    "message": "Salta"
+  },
+  "content_add_selected": {
+    "message": "Aggiungi selezionati"
+  },
+  "content_calc_size": {
+    "message": "Calcola dimensioni"
+  },
+  "content_like_all": {
+    "message": "Metti mi piace a tutti"
+  },
+  "content_all_liked": {
+    "message": "A tutti piace"
+  },
+  "content_liked": {
+    "message": "Mi piace"
+  },
+  "content_create_new": {
+    "message": "Crea nuova collezione"
+  },
+  "content_login_required_like": {
+    "message": "Devi aver effettuato l'accesso per mettere mi piace agli elementi."
+  },
+  "content_many_private": {
+    "message": "Molti elementi sono privati o non possiedi il gioco!"
+  },
+  "content_in_collections": {
+    "message": "Nelle collezioni:"
+  }
+}

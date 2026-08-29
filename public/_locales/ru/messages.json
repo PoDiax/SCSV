@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "Расширение для браузера, позволяющее узнать размер коллекции в мастерской Steam одним кликом"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "Мастерская"
+  },
+  "popup_sync_btn": {
+    "message": "Синхронизировать кэш"
+  },
+  "popup_syncing": {
+    "message": "Синхронизация..."
+  },
+  "popup_clear_btn": {
+    "message": "Очистить лайкнутые аддоны"
+  },
+  "popup_clearing": {
+    "message": "Очистка..."
+  },
+  "popup_cache_items": {
+    "message": "Кэшировано элементов:"
+  },
+  "popup_view_cache": {
+    "message": "Показать данные кэша"
+  },
+  "popup_hide_cache": {
+    "message": "Скрыть данные кэша"
+  },
+  "popup_sync_progress": {
+    "message": "Пожалуйста, не закрывайте."
+  },
+  "popup_collections_text": {
+    "message": "Коллекций"
+  },
+  "msg_not_logged_in": {
+    "message": "Вы не вошли в Steam."
+  },
+  "msg_unit_changed": {
+    "message": "Единица измерения изменена на"
+  },
+  "msg_error_saving": {
+    "message": "Ошибка сохранения настроек"
+  },
+  "msg_liked_cleared": {
+    "message": "Лайкнутые аддоны очищены для текущего пользователя!"
+  },
+  "msg_error_clearing": {
+    "message": "Ошибка при очистке"
+  },
+  "msg_fetching_list": {
+    "message": "Получение списка коллекций..."
+  },
+  "msg_no_collections": {
+    "message": "Не найдено коллекций для синхронизации."
+  },
+  "msg_sync_complete": {
+    "message": "Синхронизация завершена!"
+  },
+  "msg_sync_failed": {
+    "message": "Не удалось получить коллекции"
+  },
+  "content_add_to_collection": {
+    "message": "Добавить в коллекцию"
+  },
+  "content_loading_collections": {
+    "message": "Загрузка коллекций..."
+  },
+  "content_no_collections_found": {
+    "message": "Для этой игры не найдено коллекций."
+  },
+  "content_no_collections_link_1": {
+    "message": "Похоже, у вас нет коллекций для "
+  },
+  "content_no_collections_link_2": {
+    "message": ". Нажмите "
+  },
+  "content_no_collections_link_3": {
+    "message": "здесь"
+  },
+  "content_no_collections_link_4": {
+    "message": ", чтобы создать."
+  },
+  "content_items": {
+    "message": "предметов"
+  },
+  "content_add": {
+    "message": "Добавить"
+  },
+  "content_added": {
+    "message": "Добавлено"
+  },
+  "content_error": {
+    "message": "Ошибка"
+  },
+  "content_adding": {
+    "message": "Добавление"
+  },
+  "content_added_all": {
+    "message": "Добавлены все!"
+  },
+  "content_req_items_title": {
+    "message": "Добавить также необходимые предметы?"
+  },
+  "content_skip": {
+    "message": "Пропустить"
+  },
+  "content_add_selected": {
+    "message": "Добавить выбранные"
+  },
+  "content_calc_size": {
+    "message": "Вычислить размер"
+  },
+  "content_like_all": {
+    "message": "Лайкнуть все"
+  },
+  "content_all_liked": {
+    "message": "Все лайкнуто"
+  },
+  "content_liked": {
+    "message": "Лайкнуто"
+  },
+  "content_create_new": {
+    "message": "Создать новую коллекцию"
+  },
+  "content_login_required_like": {
+    "message": "Вам нужно войти в систему, чтобы ставить лайки."
+  },
+  "content_many_private": {
+    "message": "Многие предметы скрыты или у вас нет этой игры!"
+  },
+  "content_in_collections": {
+    "message": "В коллекциях:"
+  }
+}

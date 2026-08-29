@@ -4,10 +4,11 @@ const { version, name, description } = packageJson
 
 export default {
   manifest_version: 3,
-  name: "Steam Collection Size Viewer",
+  name: "__MSG_extensionName__",
   short_name: "SCSV",
   author: "PoDiax",
-  description,
+  description: "__MSG_extensionDescription__",
+  default_locale: "en",
   version,
   icons: {
     16: "icon_16.png",
@@ -36,9 +37,13 @@ export default {
       js: ["src/content-script/WorkshopHighlighter.ts"],
       matches: [
         "https://steamcommunity.com/workshop/browse/*",
+        "https://steamcommunity.com/workshop/browse*",
         "https://steamcommunity.com/app/*/workshop/*",
+        "https://steamcommunity.com/app/*/workshop*",
         "https://steamcommunity.com/id/*/myworkshopfiles/*",
-        "https://steamcommunity.com/profiles/*/myworkshopfiles/*"
+        "https://steamcommunity.com/id/*/myworkshopfiles*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles/*",
+        "https://steamcommunity.com/profiles/*/myworkshopfiles*"
       ],
     },
   ],
@@ -53,8 +58,11 @@ export default {
   },
   browser_specific_settings: {
     gecko: {
-      id: "pd@pdx.ovh",
-      strict_min_version: "109.0",
+      id: "podiax@pdx.ovh",
+      strict_min_version: "140.0",
+      data_collection_permissions: {
+        required: ["none"]
+      }
     },
   },
 }

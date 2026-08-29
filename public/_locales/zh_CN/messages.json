@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Steam Collection Size Viewer"
+  },
+  "extensionDescription": {
+    "message": "只需点击一个按钮，即可在浏览器中查看 Steam 创意工坊合集的大小"
+  },
+  "popup_title": {
+    "message": "Steam Collection"
+  },
+  "popup_subtitle": {
+    "message": "Size Viewer"
+  },
+  "popup_workshop_link": {
+    "message": "创意工坊"
+  },
+  "popup_sync_btn": {
+    "message": "同步合集缓存"
+  },
+  "popup_syncing": {
+    "message": "正在同步..."
+  },
+  "popup_clear_btn": {
+    "message": "清除已点赞的插件"
+  },
+  "popup_clearing": {
+    "message": "正在清除..."
+  },
+  "popup_cache_items": {
+    "message": "缓存的物品："
+  },
+  "popup_view_cache": {
+    "message": "查看缓存数据"
+  },
+  "popup_hide_cache": {
+    "message": "隐藏缓存数据"
+  },
+  "popup_sync_progress": {
+    "message": "请保持打开状态。"
+  },
+  "popup_collections_text": {
+    "message": "个合集"
+  },
+  "msg_not_logged_in": {
+    "message": "未登录 Steam。"
+  },
+  "msg_unit_changed": {
+    "message": "单位已更改为"
+  },
+  "msg_error_saving": {
+    "message": "保存设置时出错"
+  },
+  "msg_liked_cleared": {
+    "message": "当前用户的已点赞插件已清除！"
+  },
+  "msg_error_clearing": {
+    "message": "清除插件时出错"
+  },
+  "msg_fetching_list": {
+    "message": "正在获取合集列表..."
+  },
+  "msg_no_collections": {
+    "message": "没有找到需要同步的合集。"
+  },
+  "msg_sync_complete": {
+    "message": "同步完成！"
+  },
+  "msg_sync_failed": {
+    "message": "获取合集失败"
+  },
+  "content_add_to_collection": {
+    "message": "添加到合集"
+  },
+  "content_loading_collections": {
+    "message": "正在加载合集..."
+  },
+  "content_no_collections_found": {
+    "message": "未找到此游戏的任何合集。"
+  },
+  "content_no_collections_link_1": {
+    "message": "看起来您没有 "
+  },
+  "content_no_collections_link_2": {
+    "message": " 的任何合集。点击 "
+  },
+  "content_no_collections_link_3": {
+    "message": "此处"
+  },
+  "content_no_collections_link_4": {
+    "message": " 创建一个。"
+  },
+  "content_items": {
+    "message": "个物品"
+  },
+  "content_add": {
+    "message": "添加"
+  },
+  "content_added": {
+    "message": "已添加"
+  },
+  "content_error": {
+    "message": "错误"
+  },
+  "content_adding": {
+    "message": "正在添加"
+  },
+  "content_added_all": {
+    "message": "已全部添加！"
+  },
+  "content_req_items_title": {
+    "message": "同时添加必需的物品吗？"
+  },
+  "content_skip": {
+    "message": "跳过"
+  },
+  "content_add_selected": {
+    "message": "添加所选项"
+  },
+  "content_calc_size": {
+    "message": "计算大小"
+  },
+  "content_like_all": {
+    "message": "全部点赞"
+  },
+  "content_all_liked": {
+    "message": "已全部点赞"
+  },
+  "content_liked": {
+    "message": "已点赞"
+  },
+  "content_create_new": {
+    "message": "创建新合集"
+  },
+  "content_login_required_like": {
+    "message": "您需要登录才能点赞物品。"
+  },
+  "content_many_private": {
+    "message": "许多物品是私密/隐藏的，或者您未拥有该游戏！"
+  },
+  "content_in_collections": {
+    "message": "在以下合集中："
+  }
+}

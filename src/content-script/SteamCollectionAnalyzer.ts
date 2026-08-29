@@ -1,6 +1,7 @@
 import browser from 'webextension-polyfill'
 
 import { SteamAPI, SteamAPIResponse } from '../shared/SteamAPI'
+import { CollectionService } from '../shared/CollectionService'
 
 interface ItemSize {
   [key: string]: number | string
@@ -89,8 +90,8 @@ export class SteamCollectionAnalyzer {
       return
     }
 
-    const calcButton = this.createButton('Calculate Size', '_calc _calcSpan')
-    const likeAllButton = this.createButton('Like All', '_likeAll')
+    const calcButton = this.createButton(browser.i18n.getMessage('content_calc_size'), '_calc _calcSpan')
+    const likeAllButton = this.createButton(browser.i18n.getMessage('content_like_all'), '_likeAll')
 
     try {
       const allItems = await this.getAllItems()
@@ -133,7 +134,6 @@ export class SteamCollectionAnalyzer {
           button.dataset.calculated = 'true'
           button.style.cursor = 'default'
           
-          // Copy to clipboard
           try {
             await navigator.clipboard.writeText(totalSize)
           } catch (clipboardError) {
@@ -145,13 +145,13 @@ export class SteamCollectionAnalyzer {
           }, 2000)
         } catch (error) {
           console.error('Error calculating size:', error)
-          button.textContent = 'Error'
+          button.textContent = browser.i18n.getMessage('content_error')
           button.classList.remove('scsv-loading')
           button.classList.add('scsv-error')
           
           setTimeout(() => {
             button.classList.remove('scsv-error')
-            button.textContent = 'Calculate Size'
+            button.textContent = browser.i18n.getMessage('content_calc_size')
           }, 3000)
         }
       } else {
@@ -175,10 +175,10 @@ export class SteamCollectionAnalyzer {
           button.removeAttribute('data-progress')
           
           if (liked > 0) {
-            button.textContent = `Liked ${liked}`
+            button.textContent = `${browser.i18n.getMessage('content_liked')} ${liked}`
             button.classList.add('scsv-success')
           } else {
-            button.textContent = 'Like All'
+            button.textContent = browser.i18n.getMessage('content_like_all')
           }
 
           setTimeout(() => {
@@ -186,13 +186,13 @@ export class SteamCollectionAnalyzer {
           }, 3000)
         } catch (error) {
           console.error('Error liking items:', error)
-          button.textContent = 'Error'
+          button.textContent = browser.i18n.getMessage('content_error')
           button.classList.remove('scsv-loading')
           button.classList.add('scsv-error')
           
           setTimeout(() => {
             button.classList.remove('scsv-error')
-            button.textContent = 'Like All'
+            button.textContent = browser.i18n.getMessage('content_like_all')
           }, 3000)
         }
       } else {
@@ -200,9 +200,11 @@ export class SteamCollectionAnalyzer {
       }
     }
 
-    // Check if all items are already liked
     try {
-      const storageKey = `likedItems_${this.id}`
+      const user = await CollectionService.getCurrentUser()
+      if (!user) return
+      
+      const storageKey = `likedItems_${user.steamId}_${this.id}`
       const result = await browser.storage.local.get(storageKey)
       const likedItems = Array.isArray(result[storageKey]) ? result[storageKey] : [];
 
@@ -210,7 +212,7 @@ export class SteamCollectionAnalyzer {
       const allLiked = allItems.every(item => likedItems.includes(item))
       
       if (allLiked && allItems.length > 0) {
-        button.textContent = 'All Liked'
+        button.textContent = browser.i18n.getMessage('content_all_liked')
         button.style.opacity = '0.7'
       }
     } catch (error) {
@@ -286,7 +288,6 @@ export class SteamCollectionAnalyzer {
       const titleElement = addon.querySelector('.workshopItemTitle')
       
       if (titleElement && itemSizes[addonId] && itemSizes[addonId] !== 'N/A') {
-        // Remove existing size display
         const existingSize = titleElement.querySelector('.item-size')
         if (existingSize) {
           existingSize.remove()
@@ -315,18 +316,14 @@ export class SteamCollectionAnalyzer {
   }
 
   private async likeAllItems(workshopItemIds: string[], onProgress?: (current: number, total: number) => void): Promise<number> {
-    if (!this.checkUserLoggedIn()) {
-      alert('You need to be logged in to like items.')
+    const user = await CollectionService.getCurrentUser()
+    if (!user) {
+      alert(browser.i18n.getMessage('content_login_required_like'))
       return 0
     }
 
-    const sessionId = this.getSessionId()
-    if (!sessionId) {
-      console.warn('Session ID not found')
-      return 0
-    }
-
-    const storageKey = `likedItems_${this.id}`
+    const sessionId = user.sessionId
+    const storageKey = `likedItems_${user.steamId}_${this.id}`
     const result = await browser.storage.local.get(storageKey)
   const likedItems = new Set<string>(Array.isArray(result[storageKey]) ? result[storageKey] : []);
 
@@ -364,7 +361,7 @@ export class SteamCollectionAnalyzer {
           status15Timestamps = status15Timestamps.filter(ts => now - ts <= 5000)
           
           if (status15Timestamps.length >= 5) {
-            alert('Many items are private/hidden or you do not own the game!')
+            alert(browser.i18n.getMessage('content_many_private'))
             break
           }
           continue
